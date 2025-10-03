@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "511226301219",
+    "project_id": "the-clinical-app",
+    "storage_bucket": "the-clinical-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511226301219:android:940d7f16cc88be83b51a96",
+        "android_client_info": {
+          "package_name": "com.example.tasty_bite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwZD5JTAUnJQIlA2INdBFXHTVyiMzefTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

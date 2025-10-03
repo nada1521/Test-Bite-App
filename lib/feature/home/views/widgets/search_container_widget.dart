@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/helper/navigation/push_to.dart';
+import '../../../../core/helper/spacing.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_text_style.dart';
+import '../screens/search_screen.dart';
+
+class SearchContainerWidget extends StatelessWidget {
+  const SearchContainerWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        pushTo(context, SearchScreen());
+      },
+      child: Container(
+        width: double.infinity,
+        height: 50.h,
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.all(8),
+
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.grey),
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(14.r),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(Icons.search),
+            horizontalSpace(4),
+            Text(
+              "Discover global flavors 🌍",
+              style: AppTextStyle.fontWeightW500Size18TextSecondColor,
+            ),
+            Spacer(flex: 1),
+            Icon(Icons.filter_alt),
+          ],
+        ),
+      ),
+    );
+  }
+}
