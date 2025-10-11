@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tasty_bite/core/helper/spacing.dart';
@@ -45,63 +44,88 @@ class _FormChangePasswordWidgetState extends State<FormChangePasswordWidget> {
   }
 
   Future<void> _changePassword() async {
-    if (!_formKey.currentState!.validate()) return;
-    final user = _auth.currentUser;
-    if (user == null || user.email == null) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('No authenticated user.')));
-      return;
+    if (!_formKey.currentState!.validate()) {
+      setState(() => _loading = true);
+      try {
+        final user = _auth.currentUser!;
+        final credential = EmailAuthProvider.credential(
+          email: user.email!,
+          password: _currentController.text.trim(),
+        );
+        await user.reauthenticateWithCredential(credential);
+        await user.updatePassword(_newController.text.trim());
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('تم تغيير كلمة المرور بنجاح'),
+            backgroundColor: Colors.green,
+          ),
+        );
+        _currentController.clear();
+        _newController.clear();
+        _confirmController.clear();
+      } on FirebaseAuthException catch (e) {
+        String message = 'حدث خطأ في تغيير كلمة المرور';
+        if (e.code == 'wrong-password') {
+          message = 'كلمة المرور الحالية غير صحيحة';
+        } else if (e.code == 'weak-password') {
+          message = 'كلمة المرور الجديدة ضعيفة';
+        }
+
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(message)));
+      } finally {
+        setState(() {
+          _loading = false;
+        });
+      }
     }
 
-    setState(() => _loading = true);
-    final currentPass = _currentController.text.trim();
-    final newPass = _newController.text.trim();
+    // if (user == null || user.email == null) {
+    //   ScaffoldMessenger.of(
+    //     context,
+    //   ).showSnackBar(const SnackBar(content: Text('No authenticated user.')));
+    //   return;
+    // }
 
-    try {
-      // 1) Reauthenticate
-      final credential = EmailAuthProvider.credential(
-        email: user.email!,
-        password: currentPass,
-      );
+    // final currentPass = _currentController.text.trim();
+    // final newPass = _newController.text.trim();
 
-      await user.reauthenticateWithCredential(credential);
+    // try {
+    //   // 1) Reauthenticate
 
-      // 2) Update password in Firebase Auth
-      await user.updatePassword(newPass);
+    //   // 2) Update password in Firebase Auth
 
-      // 3) (اختياري) — لو عندك حقل في Firestore تريد تحديثه (مثال فقط)
-      // *** تحذير: لا تخزن الباسورد كنص عادي! هذا مثال توضيحي فقط. ***
-      // إذا كنت تخزن هاش أو علم (flag) فقط حدّث الحقل الملائم.
-      // final usersRef = _firestore
-      //     .collection(FirebaseStrings.users)
-      //     .doc(user.uid);
+    //   // 3) (اختياري) — لو عندك حقل في Firestore تريد تحديثه (مثال فقط)
+    //   // *** تحذير: لا تخزن الباسورد كنص عادي! هذا مثال توضيحي فقط. ***
+    //   // إذا كنت تخزن هاش أو علم (flag) فقط حدّث الحقل الملائم.
+    //   // final usersRef = _firestore
+    //   //     .collection(FirebaseStrings.users)
+    //   //     .doc(user.uid);
 
-      // // مثال: نضع حقل lastPasswordChangeAt لمتابعة آخر تغيير
-      // await usersRef.update({
-      //   FirebaseStrings.confirmPassword: FieldValue.serverTimestamp(),
-      //   // 'passwordHash': '...' // لو عندك هاش فعلي حدّثه هنا (لا تخزن plain text)
-      // });
+    //   // // مثال: نضع حقل lastPasswordChangeAt لمتابعة آخر تغيير
+    //   // await usersRef.update({
+    //   //   FirebaseStrings.confirmPassword: FieldValue.serverTimestamp(),
+    //   //   // 'passwordHash': '...' // لو عندك هاش فعلي حدّثه هنا (لا تخزن plain text)
+    //   // });
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Password changed successfully.')),
-      );
-      _currentController.clear();
-      _newController.clear();
-      _confirmController.clear();
-    } on FirebaseAuthException catch (e) {
-      log(e.toString());
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(e.toString())));
-    } catch (e) {
-      log(e.toString());
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Unexpected error: $e')));
-    } finally {
-      if (mounted) setState(() => _loading = false);
-    }
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('Password changed successfully.')),
+    //   );
+
+    // } on FirebaseAuthException catch (e) {
+    //   log(e.toString());
+    //   ScaffoldMessenger.of(
+    //     context,
+    //   ).showSnackBar(SnackBar(content: Text(e.toString())));
+    // } catch (e) {
+    //   log(e.toString());
+    //   ScaffoldMessenger.of(
+    //     context,
+    //   ).showSnackBar(SnackBar(content: Text('Unexpected error: $e')));
+    // } finally {
+    //   if (mounted) setState(() => _loading = false);
+    // }
   }
 
   String? _validatePassword(String? v) {
