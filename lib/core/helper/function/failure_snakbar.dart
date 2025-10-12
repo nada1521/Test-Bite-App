@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/app_text_style.dart';
 
 import '../../utils/app_colors.dart';
-import '../../utils/app_text_style.dart';
 
-void successShowSnackBar({required String title,context}) {
+void failureSnakBar({required String title,context}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(
@@ -12,7 +12,7 @@ void successShowSnackBar({required String title,context}) {
           color: AppColors.white,
         ),
       ),
-      backgroundColor: AppColors.green,
+      backgroundColor: AppColors.red,
       duration: Duration(seconds: 2),
     ),
   );

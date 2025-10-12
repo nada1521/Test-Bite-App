@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_cubit.dart';
+import 'package:tasty_bite/feature/home/views/logic/searchbyletter_cubit.dart';
+import 'package:tasty_bite/feature/home/views/screens/search_screen.dart';
+import 'package:tasty_bite/feature/menu/data/repos/menu_repo.dart';
+import 'package:tasty_bite/feature/settings/view/logic/change_password_cubit.dart';
 import 'package:tasty_bite/feature/settings/view/screens/change_password_screen.dart';
 import 'package:tasty_bite/feature/settings/view/screens/setings_screen.dart';
 import '../../feature/auth/login/logic/login_cubit.dart';
@@ -85,6 +89,13 @@ class AppRouter {
             ),
           ),
         );
+      case AppRoutes.changePasswordScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => ChangePasswordCubit(),
+            child: ChangePasswordScreen(),
+          ),
+        );
       case AppRoutes.settingScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<UserDataCubit>(
@@ -92,8 +103,14 @@ class AppRouter {
             child: SetingsScreen(),
           ),
         );
-      case AppRoutes.changePasswordScreen:
-        return MaterialPageRoute(builder: (context) => ChangePasswordScreen());
+      case AppRoutes.searchScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<SearchbyletterCubit>(
+            create: (_) => getIt<SearchbyletterCubit>(),
+            child: SearchScreen(),
+          ),
+        );
+
       case AppRoutes.drowerScreen:
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(

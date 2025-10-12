@@ -6,7 +6,6 @@ import 'package:tasty_bite/core/Networking/api_result.dart';
 
 import '../../../../core/utils/app_constants.dart';
 import '../../../../core/utils/helper/cache_helper.dart';
-import '../../../../core/utils/helper/encryption_helper.dart';
 import '../data/models/signup_request.dart';
 import '../data/repos/signup_repos.dart';
 import 'sign_up_state.dart';
@@ -33,16 +32,16 @@ class SignupCubit extends Cubit<SignupState> {
       emit(const SignupState.loading());
 
       final fcmToken = await FirebaseMessaging.instance.getToken();
-      final encryptedPassword = EncryptionHelper().encryptText(
-        passwordController.text,
-      );
+      // final encryptedPassword = EncryptionHelper().encryptText(
+      //   passwordController.text,
+      // );
 
       final result = await signupRepo.signUp(
         SignupRequestModel(
           phoneNumber: '$countryCode${phoneController.text}',
           firstName: firstNameController.text,
           email: emailController.text,
-          password: encryptedPassword,
+          password: passwordController.text,
           lastName: lastNameController.text,
           confirmPassword: confirmPasswordController.text,
           country: countryController.text,

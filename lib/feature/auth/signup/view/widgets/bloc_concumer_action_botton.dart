@@ -35,7 +35,7 @@ class BlocConsumerActionButton extends StatelessWidget {
           widget: state is Loading
               ? CustomProgressIndecator()
               : Text(
-                  'إنشاء حساب',
+                  "Creat an account",
                   style: AppTextStyle.fontSize14Bold.copyWith(fontSize: 18),
                 ),
         );

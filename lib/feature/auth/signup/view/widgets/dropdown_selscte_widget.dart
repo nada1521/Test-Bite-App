@@ -31,6 +31,7 @@ class _DropdownSelscteWidgetState extends State<DropdownSelscteWidget> {
           fillColor: AppColors.white,
           border: InputBorder.none,
         ),
+        // ignore: deprecated_member_use
         value: selectedCountry,
         onChanged: (value) {
           setState(() {

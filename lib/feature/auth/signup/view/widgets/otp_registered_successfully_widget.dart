@@ -40,7 +40,7 @@ class OtpRegisteredSuccessfullyWidget extends StatelessWidget {
             Navigator.pop(context);
             pushReplacementNamed(
               context,
-              AppRoutes.menueScreen,
+              AppRoutes.drowerScreen,
               arguments: getIt<SignupCubit>().countryController.text,
             );
           },

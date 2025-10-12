@@ -7,7 +7,7 @@ import '../utils/app_text_style.dart';
 class CustomButton extends StatelessWidget {
   final String? title;
   final double? width, height;
-  final Function() onTap;
+  final VoidCallback? onTap;
   final Color? startColor;
   final Color? endColor;
   final Widget? widget;

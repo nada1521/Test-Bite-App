@@ -18,4 +18,6 @@ abstract class AppColors {
   static const Color bagelight=Color(0xFFF5F5DC);
   static const Color green = Colors.green;
   static const Color grey = Colors.grey;
+  static const Color red = Colors.red;
+
 }

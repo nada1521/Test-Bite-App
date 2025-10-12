@@ -11,9 +11,7 @@ part of 'menu_api_service.dart';
 class _MenuApiService implements MenuApiService {
   _MenuApiService(
     this._dio, {
-    // ignore: unused_element_parameter
     this.baseUrl,
-    // ignore: unused_element_parameter
     this.errorLogger,
   }) {
     baseUrl ??= 'https://www.themealdb.com/api/json/v1/1/';
@@ -139,6 +137,40 @@ class _MenuApiService implements MenuApiService {
         .compose(
           _dio.options,
           'filter.php?a',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late FilterCategoryResponseModel _value;
+    try {
+      _value = FilterCategoryResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<FilterCategoryResponseModel> searchForFirstLetter(
+      String firstLetter) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'f': firstLetter};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<FilterCategoryResponseModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'search.php?',
           queryParameters: queryParameters,
           data: _data,
         )

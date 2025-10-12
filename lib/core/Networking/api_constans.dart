@@ -5,4 +5,7 @@ class ApiConstans {
   static const String itemDetails = "lookup.php?";
   static const String filterByCountry = "filter.php?a";
  static const String areaList= "list.php?a=list";
+ static const String searchAlpha= "search.php?";
+
+ 
 }

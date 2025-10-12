@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
+import 'package:tasty_bite/feature/menu/data/models/search_response_model.dart';
 import '../../../../core/Networking/api_constans.dart';
 import '../models/category_menu_respons_model.dart';
 import '../models/filter_category_response_model.dart';
@@ -22,9 +22,13 @@ abstract class MenuApiService {
   @GET(ApiConstans.itemDetails)
   Future<ItemDetailsResponseModel> getItemDetails(@Query("i") String itemId);
   
-  
   @GET(ApiConstans.filterByCountry)
   Future<FilterCategoryResponseModel> getItemByCountry(
     @Query("a") String country,
+  );
+
+   @GET(ApiConstans.searchAlpha)
+  Future<FilterCategoryResponseModel> searchForFirstLetter(
+    @Query("f") String firstLetter,
   );
 }

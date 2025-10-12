@@ -17,3 +17,13 @@ UserSignUpResponseBody _$UserSignUpResponseBodyFromJson(
       message: json['message'] as String,
     );
 
+Map<String, dynamic> _$UserSignUpResponseBodyToJson(
+        UserSignUpResponseBody instance) =>
+    <String, dynamic>{
+      'full_name': instance.fullName,
+      'email': instance.email,
+      'token': instance.token,
+      'fcm_token': instance.fcmToken,
+      'code': instance.code,
+      'message': instance.message,
+    };

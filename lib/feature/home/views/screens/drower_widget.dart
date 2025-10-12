@@ -8,7 +8,6 @@ import '../../../../core/helper/spacing.dart';
 import '../../../../core/router/app_router_path.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../auth/signup/logic/user_data_cubit.dart';
-import '../../../settings/view/screens/setings_screen.dart';
 import '../widgets/custom_list_title_widget.dart';
 
 class DrowerWidget extends StatelessWidget {

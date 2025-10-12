@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/router/app_router_path.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
-import '../screens/search_screen.dart';
 
 class SearchContainerWidget extends StatelessWidget {
   const SearchContainerWidget({super.key});
@@ -13,7 +13,7 @@ class SearchContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        pushTo(context, SearchScreen());
+        pushNamed(context, AppRoutes.searchScreen);
       },
       child: Container(
         width: double.infinity,

@@ -31,13 +31,15 @@ class SigninActionButton extends StatelessWidget {
       },
       builder: (context, state) {
         return CustomButton(
-          onTap: () {
-            cubit.emitLoginStates();
-          },
+          onTap: state is Loading
+              ? null
+              : () {
+                  cubit.emitLoginStates();
+                },
           widget: state is Loading
               ? CustomProgressIndecator()
               : Text(
-                  'إنشاء حساب',
+                  "Login",
                   style: AppTextStyle.fontWeightBoldSize20.copyWith(
                     color: AppColors.white,
                   ),
@@ -47,5 +49,3 @@ class SigninActionButton extends StatelessWidget {
     );
   }
 }
-
-

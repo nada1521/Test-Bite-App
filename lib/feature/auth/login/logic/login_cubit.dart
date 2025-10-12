@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:tasty_bite/core/Networking/api_result.dart';
 import '../../../../core/utils/app_constants.dart';
 import '../../../../core/utils/helper/cache_helper.dart';
-import '../../../../core/utils/helper/encryption_helper.dart';
 import '../data/models/user_login_request_body.dart';
 import '../data/repos/login_repo.dart';
 import 'login_state.dart';
@@ -22,15 +21,13 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
 
     final fcmToken = await FirebaseMessaging.instance.getToken();
-    String encryptedPassword = EncryptionHelper().encryptText(
-      passwordController.text,
-    );
-    log(encryptedPassword);
+   
+
     log(fcmToken!);
     final result = await _loginRepo.firebaseLogin(
       UserLoginRequestBody(
         email: emailController.text,
-        password: encryptedPassword,
+        password: passwordController.text,
         fcmToken: fcmToken,
       ),
     );

@@ -1,5 +1,5 @@
 abstract class AuthValidator {
-  static const int minPasswordLength = 8;
+  static const int minPasswordLength = 6;
 
   static final emailRegExp = RegExp(
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$",
