@@ -26,8 +26,9 @@ class FoodCard extends StatelessWidget {
           verticalSpace(10),
           Text(
             foodmodel.categoryName,
-            style: AppTextStyle.fontWeightRegularSize16TextSecondColor2
-                .copyWith(fontWeight: FontWeight.bold),
+            style: AppTextStyle.fontWeightW400Size18TextSecondColor.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),

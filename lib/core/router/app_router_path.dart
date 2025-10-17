@@ -10,6 +10,8 @@ class AppRoutes {
   static const String menueScreen= 'menueScreen';
   static const String settingScreen= 'setting';
   static const String changePasswordScreen= 'changePassword';
+  static const String searchScreen= '/searchScreen';
+
 
 
 }

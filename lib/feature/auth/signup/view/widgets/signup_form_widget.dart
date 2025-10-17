@@ -14,19 +14,22 @@ class SignupFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<SignupCubit>();
-    return Form(
-      key: cubit.formKey,
-      child: Column(
-        children: [
-          ListViewFormWidget(textFieldModels: signupFormList(cubit)),
-          verticalSpace(10),
-          DropdownSelscteWidget(cubit: cubit),
-          verticalSpace(20),
-          BlocConsumerActionButton(),
-          verticalSpace(15),
-          HaveAccount(),
-          verticalSpace(25),
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Form(
+        key: cubit.formKey,
+        child: Column(
+          children: [
+            ListViewFormWidget(textFieldModels: signupFormList(cubit)),
+            verticalSpace(10),
+            DropdownSelscteWidget(cubit: cubit),
+            verticalSpace(20),
+            BlocConsumerActionButton(),
+            verticalSpace(15),
+            HaveAccount(),
+            verticalSpace(25),
+          ],
+        ),
       ),
     );
   }

@@ -1,9 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/helper/spacing.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_style.dart';
-import '../../../../../core/utils/generated/tr_locale_keys.g.dart';
 import '../../../login/view/widgets/logo_image.dart';
 import '../widgets/signup_form_widget.dart';
 
@@ -20,25 +18,27 @@ class SignupScreen extends StatelessWidget {
           children: [
             LogoImage(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: Text(
-                LocaleKeys.signup_screen_creat_an_accunt.tr(),
-                style: AppTextStyle.fontWeightW600Size20ColorTextMain,
+                "Create Account",
+                style: AppTextStyle.fontSize32BoldTextPrimaryColor.copyWith(
+                  fontSize: 30.sp,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Text(
-                "Create your account and explore recipes from around the world 🍲",
-                style: AppTextStyle.fontWeightRegularSize16TextSecondColor2
+                "Create your account and explore recipes from around the world ",
+                style: AppTextStyle.fontWeightW400Size18TextSecondColor
                     .copyWith(color: AppColors.textSecondColor),
               ),
             ),
-            verticalSpace(10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: SignupFormWidget(),
-            ),
+
+        
+              
+          SignupFormWidget(),
+            
           ],
         ),
       ),

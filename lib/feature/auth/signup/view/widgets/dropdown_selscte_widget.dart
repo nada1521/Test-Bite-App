@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/app_text_style.dart';
 import '../../../../../core/constants/select_country_list.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../logic/sign_up_cubit.dart';
@@ -31,6 +32,8 @@ class _DropdownSelscteWidgetState extends State<DropdownSelscteWidget> {
           fillColor: AppColors.white,
           border: InputBorder.none,
         ),
+        style: AppTextStyle.fontWeightNormalSize17TextClickable,
+        // ignore: deprecated_member_use
         value: selectedCountry,
         onChanged: (value) {
           setState(() {
@@ -47,7 +50,10 @@ class _DropdownSelscteWidgetState extends State<DropdownSelscteWidget> {
         items: countries.map((country) {
           return DropdownMenuItem(value: country, child: Text(country));
         }).toList(),
-        hint: Text("Select country"),
+        hint: Text(
+          "Select country",
+          style: AppTextStyle.fontWeightW400Size16HintTextColor,
+        ),
       ),
     );
   }

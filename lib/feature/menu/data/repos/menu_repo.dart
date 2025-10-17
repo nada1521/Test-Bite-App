@@ -51,4 +51,17 @@ class MenuRepo {
       return ApiResult.failure(FailureServer(error.toString()));
     }
   }
+
+  Future<ApiResult<FilterCategoryResponseModel>> searchForFirstLetter({
+    required String firstLetter,
+  }) async {
+    try {
+     
+      final response =await menuApiService.searchForFirstLetter(firstLetter);
+
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(FailureServer(error.toString()));
+    }
+  }
 }

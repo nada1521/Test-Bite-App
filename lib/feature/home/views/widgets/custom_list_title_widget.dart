@@ -21,7 +21,7 @@ class CustomListTitleWidget extends StatelessWidget {
         leading: Icon(icon),
         title: Text(
           title,
-          style: AppTextStyle.fontWeightW600Size17ColorTextMain,
+          style: AppTextStyle.fontWeightW600Size17ColorTextPrimaryColor,
         ),
       ),
     );

@@ -32,7 +32,7 @@ class OtpRegisteredSuccessfullyWidget extends StatelessWidget {
         Text(
           LocaleKeys.otp_account_created_successfully.tr(),
           textAlign: TextAlign.center,
-          style: AppTextStyle.fontWeightRegularSize16TextSecondColor2,
+          style: AppTextStyle.fontWeightW400Size18TextSecondColor,
         ),
         verticalSpace(10),
         CustomButton(
@@ -40,7 +40,7 @@ class OtpRegisteredSuccessfullyWidget extends StatelessWidget {
             Navigator.pop(context);
             pushReplacementNamed(
               context,
-              AppRoutes.menueScreen,
+              AppRoutes.drowerScreen,
               arguments: getIt<SignupCubit>().countryController.text,
             );
           },

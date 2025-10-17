@@ -10,18 +10,18 @@ class TextFieldModel {
   bool? isPhoneNumber;
   int? maxLines;
   Widget? suffixIcon;
-  Widget? prefixIcon;
-  final Function(CountryCode?)?  countryCodePicker ;
-  TextFieldModel( {
+  IconData? prefixIcon;
+  final Function(CountryCode?)? countryCodePicker;
+  TextFieldModel({
     this.countryCodePicker,
-     this.title,
+    this.title,
     required this.hintText,
-     this.validator,
+    this.validator,
     required this.controller,
     this.isPassword,
     this.isPhoneNumber,
     this.suffixIcon,
     this.prefixIcon,
-    this.maxLines
+    this.maxLines,
   });
 }

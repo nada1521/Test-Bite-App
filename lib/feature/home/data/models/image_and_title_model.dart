@@ -1,6 +1,6 @@
-class ImageAndTitleModel {
-  final String title;
-  final String image;
+// class ImageAndTitleModel {
+//   final String title;
+//   final String image;
 
-  ImageAndTitleModel({required this.title, required this.image});
-}
+//   ImageAndTitleModel({required this.title, required this.image});
+// }

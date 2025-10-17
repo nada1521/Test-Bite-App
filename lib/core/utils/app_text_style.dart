@@ -2,31 +2,69 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/app_colors.dart';
 
+import 'new_app_colors.dart';
+
 abstract class AppTextStyle {
-  static final fontWeightBoldSize20 = TextStyle(
-    color: AppColors.mainColor,
-    fontSize: 20.sp,
-    fontWeight: FontWeight.bold,
-  );
-  static final fontSize32Bold = TextStyle(
-    color: AppColors.textMainColor,
+  // primary color text styles
+  static final fontSize32BoldTextPrimaryColor = TextStyle(
+    color: NewAppColors.primary,
     fontSize: 32.sp,
     fontWeight: FontWeight.bold,
   );
-  static final fontWeightRegularSize16TextSecondColor2 = TextStyle(
+  static final fontWeightW600Size17ColorTextPrimaryColor = TextStyle(
+    color: NewAppColors.primary,
+    fontSize: 17.sp,
+    fontWeight: FontWeight.w600,
+  );
+  static final fontSize16BoldTextPrimaryColor = TextStyle(
+    color: NewAppColors.primary,
     fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+  );
+
+  // secandary color text styles
+  static final fontWeightW400Size18TextSecondColor = TextStyle(
+    fontSize: 18.sp,
     fontWeight: FontWeight.w400,
-    color: AppColors.textSecondColor2,
+    color: NewAppColors.textMedium,
   );
   static final fontWeightW500Size18TextSecondColor = TextStyle(
     fontSize: 18.sp,
-    color: AppColors.textSecondColor,
+    color: NewAppColors.textDark,
     fontWeight: FontWeight.w500,
   );
+  static final fontWeightnormalSize16ColorTextSecond = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontSize: 16.sp,
+    color: NewAppColors.textMedium,
+  );
+  static final fontWeightBoldSize20 = TextStyle(
+    color: NewAppColors.primary,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final fontWeightBoldSize20ButtomColorWhite = TextStyle(
+    color: AppColors.white,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final fontWeightW400Size16HintTextColor = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: NewAppColors.textLight,
+  );
+
   static final fontSize14Bold = TextStyle(
     color: AppColors.white,
     fontSize: 14.sp,
     fontWeight: FontWeight.bold,
+  );
+  static final fontWeightNourmalSize14RedColor = TextStyle(
+    color: NewAppColors.error,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.normal,
   );
   static final fontWeightW700Size18ColorMain = TextStyle(
     color: AppColors.mainColor,
@@ -34,29 +72,15 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w700,
   );
   static final appbarSize22MainColor = TextStyle(
-    color: AppColors.mainColor,
+    color: AppColors.white,
     fontSize: 22.sp,
     fontWeight: FontWeight.w700,
   );
-  static final fontWeightW600Size20ColorTextMain = TextStyle(
-    color: AppColors.textMainColor,
-    fontSize: 20.sp,
-    fontWeight: FontWeight.w600,
-  );
-  static final fontWeightW600Size17ColorTextMain = TextStyle(
-    color: AppColors.textMainColor,
-    fontSize: 17.sp,
-    fontWeight: FontWeight.w600,
-  );
-  static final fontWeightnormalSize16ColorTextSecond = TextStyle(
-    fontWeight: FontWeight.normal,
-    fontSize: 16.sp,
-    color: AppColors.textSecondColor,
-  );
+
   static final fontWeightBoldSize16ColorHintIcon = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 16.sp,
-    color: AppColors.hintIconColor,
+    color: AppColors.hintTextColor,
   );
 
   static final fontWeightW700Size22ColorGreen = TextStyle(
@@ -64,9 +88,10 @@ abstract class AppTextStyle {
     fontSize: 22.sp,
     fontWeight: FontWeight.w700,
   );
-  static final fontWeightW600Size15 = TextStyle(
-    fontSize: 15.sp,
-    fontWeight: FontWeight.w600,
+  static final fontWeightNormalSize17TextClickable = TextStyle(
+    color: NewAppColors.textDark,
+    fontSize: 17.sp,
+    fontWeight: FontWeight.normal,
   );
   static final fontWeightW600Size17ColorsGreen = TextStyle(
     color: AppColors.green,

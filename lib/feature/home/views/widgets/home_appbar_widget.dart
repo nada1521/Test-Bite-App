@@ -11,7 +11,7 @@ class HomeAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         'Tasty food for you abdo',
-        style: AppTextStyle.fontSize32Bold.copyWith(
+        style: AppTextStyle.fontSize32BoldTextPrimaryColor.copyWith(
           fontWeight: FontWeight.w600,
           fontSize: 22,
         ),

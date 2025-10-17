@@ -76,7 +76,7 @@ class FavoritItem extends StatelessWidget {
                   itemDetails.strMeal,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
-                  style: AppTextStyle.fontWeightRegularSize16TextSecondColor2
+                  style: AppTextStyle.fontWeightW400Size18TextSecondColor
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -89,7 +89,7 @@ class FavoritItem extends StatelessWidget {
                 },
                 icon: Icon(
                   Icons.delete,
-                  color: AppColors.clickableIconColor,
+                  color: AppColors.clickableTextColor,
                   size: 22,
                 ),
               ),

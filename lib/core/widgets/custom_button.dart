@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/app_text_style.dart';
@@ -7,7 +8,7 @@ import '../utils/app_text_style.dart';
 class CustomButton extends StatelessWidget {
   final String? title;
   final double? width, height;
-  final Function() onTap;
+  final VoidCallback? onTap;
   final Color? startColor;
   final Color? endColor;
   final Widget? widget;
@@ -32,7 +33,7 @@ class CustomButton extends StatelessWidget {
         width: width ?? double.infinity,
         height: height ?? 49.h,
         decoration: BoxDecoration(
-          color: AppColors.mainColor,
+          color: NewAppColors.primary,
           borderRadius: BorderRadius.circular(18.r),
         ),
         child: Center(

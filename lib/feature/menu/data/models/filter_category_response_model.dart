@@ -8,9 +8,17 @@ class FilterCategoryResponseModel {
 
   FilterCategoryResponseModel({required this.meals});
 
-  factory FilterCategoryResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$FilterCategoryResponseModelFromJson(json);
-
+  factory FilterCategoryResponseModel.fromJson(Map<String, dynamic> json) {
+    final mealsData = json["meals"];
+    if (mealsData == null || mealsData is! List) {
+      return FilterCategoryResponseModel(meals: []);
+    }
+    return FilterCategoryResponseModel(
+      meals: (mealsData)
+          .map<ItemMenuModel>((meal) => ItemMenuModel.fromJson(meal))
+          .toList(),
+    );
+  }
   Map<String, dynamic> toJson() => _$FilterCategoryResponseModelToJson(this);
 }
 

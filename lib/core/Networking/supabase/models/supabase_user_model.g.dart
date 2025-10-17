@@ -16,3 +16,12 @@ SupabaseUserResponse _$SupabaseUserResponseFromJson(
       fcmToken: json['fcm_token'] as String,
     );
 
+Map<String, dynamic> _$SupabaseUserResponseToJson(
+        SupabaseUserResponse instance) =>
+    <String, dynamic>{
+      'user_name': instance.userName,
+      'email': instance.email,
+      'phone_number': instance.phoneNumber,
+      'address': instance.address,
+      'fcm_token': instance.fcmToken,
+    };

@@ -53,7 +53,7 @@ class MenuItemWidget extends StatelessWidget {
                         child: Text(
                           categoryMenu.itemName,
                           style: AppTextStyle
-                              .fontWeightRegularSize16TextSecondColor2
+                              .fontWeightW400Size18TextSecondColor
                               .copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
