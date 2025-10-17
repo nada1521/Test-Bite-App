@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import 'package:tasty_bite/feature/home/views/logic/searchbyletter_cubit.dart';
 import 'package:tasty_bite/feature/home/views/widgets/item_list_search.dart';
@@ -27,7 +28,7 @@ class SearchListWidget extends StatelessWidget {
             );
           } else {
             return SizedBox(
-              height: 500.h,
+              height: 800.h,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: state.searchResults.length,
@@ -41,15 +42,19 @@ class SearchListWidget extends StatelessWidget {
         } else if (state is Initial) {
           return Column(
             children: [
-              verticalSpace(190),
-              Text(
-                "Start searching for your favorite dishes 🍽️",
-                style: AppTextStyle.fontWeightW500Size18TextSecondColor,
+              verticalSpace(200),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Text(
+                  "Start searching for your favorite dishes 🍽️",
+                  textAlign: TextAlign.center,
+                  style: AppTextStyle.fontWeightW500Size18TextSecondColor,
+                ),
               ),
             ],
           );
         }
-        return CustomProgressIndecator();
+        return CustomProgressIndecator(color: NewAppColors.primary);
       },
     );
   }

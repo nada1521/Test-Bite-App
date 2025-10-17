@@ -21,7 +21,7 @@ class AddToFavoritScreen extends StatelessWidget {
           children: [
             Text(
               "Add to favorit dishes",
-              style: AppTextStyle.fontWeightnormalSize16ColorTextSecond,
+              style: AppTextStyle.fontWeightBoldSize18TextMediumColor,
             ),
             IconButton(
               onPressed: () {

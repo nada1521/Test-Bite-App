@@ -27,11 +27,16 @@ class _MenueScreenState extends State<MenueScreen> {
   void initState() {
     super.initState();
 
+    countryName = widget.countryName ?? "Egyptian";
+
     getUserCountry().then((coutry) {
-      setState(() {
-        countryName = coutry ?? "Egyptian";
-      });
+      if (coutry != null) {
+        setState(() {
+          countryName = coutry;
+        });
+      }
     });
+
     _loadUserName();
   }
 
@@ -62,7 +67,9 @@ class _MenueScreenState extends State<MenueScreen> {
               const SearchContainerWidget(),
               Text(
                 " Country Food",
-                style: AppTextStyle.fontWeightW600Size17ColorTextPrimaryColor,
+                style: AppTextStyle.fontSize16BoldTextPrimaryColor.copyWith(
+                  fontSize: 20.sp,
+                ),
               ),
               MenuListViewItem(countryName: countryName ?? "Egyptian"),
               verticalSpace(50),
@@ -81,31 +88,30 @@ class WelcomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 10, bottom: 10),
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       decoration: BoxDecoration(
         color: AppColors.bagelight,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: AppColors.grey),
       ),
-      height: 110,
 
+      height: 110.h,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(
-            // height: 100,
-            width: 210.w,
+            width: 190.w,
             child: Text(
-              "Cook, learn, and taste the world – one delicious recipe at a time 🍲🌎",
+              "Cook, learn, and taste the world - one delicious recipe at a time 🍲🌎",
 
               style: AppTextStyle.fontWeightW600Size17ColorTextPrimaryColor,
             ),
           ),
           Image.asset(
             AppAssets.sticar,
-            width: 110.w,
+            width: 120.w,
             // height: 250,
-            fit: BoxFit.cover, // عشان ما تتقصش
+            fit: BoxFit.cover,
           ),
         ],
       ),
@@ -127,7 +133,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: NewAppColors.primary,
-      title: Text(title, style: AppTextStyle.appbarSize22MainColor),
+      title: Text(title, style: AppTextStyle.appbarSize22WhiteColor),
       actions: [
         IconButton(
           onPressed: onPressed,

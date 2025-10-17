@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/helper/navigation/push_to.dart';
@@ -46,27 +47,15 @@ List<CustomListTitleWidget> getSettingsOption(BuildContext context) {
       title: "Change Email",
       onTap: () {},
     ),
-    CustomListTitleWidget(
-      icon: Icons.credit_card_outlined,
-      title: "My Card",
-      onTap: () {},
-    ),
-    CustomListTitleWidget(
-      icon: Icons.description_outlined,
-      title: "Terms and conditions",
-      onTap: () {},
-    ),
 
     CustomListTitleWidget(
-      icon: Icons.privacy_tip_outlined,
-      title: "Privacy policy",
-      onTap: () {},
+      icon: Icons.logout,
+      title: "Log out",
+      onTap: () async {
+        await FirebaseAuth.instance.signOut();
+
+        pushReplacementNamed(context, AppRoutes.loginScreen);
+      },
     ),
-    CustomListTitleWidget(
-      icon: Icons.help_outline,
-      title: " Help & Support",
-      onTap: () {},
-    ),
-    CustomListTitleWidget(icon: Icons.logout, title: "Log out", onTap: () {}),
   ];
 }

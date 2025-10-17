@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/router/app_router_path.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../data/models/filter_category_response_model.dart';
 
@@ -13,9 +13,10 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 100.h,
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: NewAppColors.scaffoldBackgroundColor,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: InkWell(

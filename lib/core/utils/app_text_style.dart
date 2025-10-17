@@ -21,11 +21,20 @@ abstract class AppTextStyle {
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
   );
-
+  static final fontWeightW700Size18ColorPrimary = TextStyle(
+    color: NewAppColors.primary,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w700,
+  );
   // secandary color text styles
   static final fontWeightW400Size18TextSecondColor = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w400,
+    color: NewAppColors.textMedium,
+  );
+  static final fontWeightBoldSize18TextMediumColor = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
     color: NewAppColors.textMedium,
   );
   static final fontWeightW500Size18TextSecondColor = TextStyle(
@@ -33,10 +42,10 @@ abstract class AppTextStyle {
     color: NewAppColors.textDark,
     fontWeight: FontWeight.w500,
   );
-  static final fontWeightnormalSize16ColorTextSecond = TextStyle(
+  static final fontWeightnormalSize16ColorTextDark = TextStyle(
     fontWeight: FontWeight.normal,
-    fontSize: 16.sp,
-    color: NewAppColors.textMedium,
+    fontSize: 18.sp,
+    color: NewAppColors.textDark,
   );
   static final fontWeightBoldSize20 = TextStyle(
     color: NewAppColors.primary,
@@ -66,12 +75,8 @@ abstract class AppTextStyle {
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
   );
-  static final fontWeightW700Size18ColorMain = TextStyle(
-    color: AppColors.mainColor,
-    fontSize: 18.sp,
-    fontWeight: FontWeight.w700,
-  );
-  static final appbarSize22MainColor = TextStyle(
+
+  static final appbarSize22WhiteColor = TextStyle(
     color: AppColors.white,
     fontSize: 22.sp,
     fontWeight: FontWeight.w700,

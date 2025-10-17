@@ -111,6 +111,7 @@ class AppRouter {
         );
 
       case AppRoutes.drowerScreen:
+       final countryName = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
@@ -125,7 +126,7 @@ class AppRouter {
                 create: (context) => UserDataCubit()..loadUserData(),
               ),
             ],
-            child: HomeAndDrawerAnimatedScreen(),
+            child: HomeAndDrawerAnimatedScreen(countryName: countryName,),
           ),
         );
       default:

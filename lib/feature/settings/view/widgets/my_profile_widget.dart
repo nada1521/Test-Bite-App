@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
+import 'package:tasty_bite/feature/home/views/widgets/uploadied_image_widget.dart';
 import '../../../../core/helper/spacing.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_cubit.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_state.dart';
-import '../../../../core/utils/app_assets.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
+import '../../../../core/utils/new_app_colors.dart';
 
 class MyProfileWidget extends StatelessWidget {
   const MyProfileWidget({super.key});
@@ -23,15 +23,12 @@ class MyProfileWidget extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             padding: EdgeInsets.all(10.r),
             decoration: BoxDecoration(
-              color: AppColors.white,
+              color: NewAppColors.scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 40.r,
-                  child: SvgPicture.asset(AppSvgs.userProfil),
-                ),
+                UploadedImage(userEmail: user.email),
                 horizontalSpace(10),
                 Expanded(
                   child: Column(
@@ -40,7 +37,8 @@ class MyProfileWidget extends StatelessWidget {
                       verticalSpace(10),
                       Text(
                         "${user.firstName} ${user.lastName}",
-                        style: AppTextStyle.appbarSize22MainColor,
+                        style: AppTextStyle.fontWeightW700Size18ColorPrimary
+                        ,
                       ),
                       Text(
                         user.phoneNumber,
@@ -57,7 +55,7 @@ class MyProfileWidget extends StatelessWidget {
             ),
           );
         }
-        return CircularProgressIndicator();
+        return CustomProgressIndecator(color: NewAppColors.primary,);
       },
     );
   }

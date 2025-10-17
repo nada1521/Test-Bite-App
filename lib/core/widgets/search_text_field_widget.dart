@@ -22,14 +22,16 @@ class SearchTextFieldWidget extends StatelessWidget {
       controller: controller,
       onChanged: onChanged,
       decoration: InputDecoration(
-        
         prefixIcon: Icon(prefixIcon),
         hintText: hintText,
         hintStyle: AppTextStyle.fontWeightW500Size18TextSecondColor,
         suffixIcon: Icon(suffixIcon),
         fillColor: AppColors.white,
         filled: true,
-        border: OutlineInputBorder(borderSide: BorderSide.none),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(18),
+        ),
       ),
     );
   }

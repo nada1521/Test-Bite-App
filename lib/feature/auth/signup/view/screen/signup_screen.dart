@@ -11,7 +11,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundWhiteColor,
+      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,10 +35,7 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
 
-        
-              
-          SignupFormWidget(),
-            
+            SignupFormWidget(),
           ],
         ),
       ),

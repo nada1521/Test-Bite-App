@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/utils/app_text_style.dart';
+import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import 'package:tasty_bite/feature/auth/login/view/logic/login_state.dart';
 
 import '../../../../core/helper/function/failure_snakbar.dart';
@@ -25,6 +26,7 @@ class FormChangePasswordWidget extends StatelessWidget {
         child: Column(
           children: [
             AppTextFormField(
+              prefixIcon: Icons.lock,
               controller: cubit.currentController,
               hintText: "Current password",
               validator: (password) =>
@@ -33,6 +35,7 @@ class FormChangePasswordWidget extends StatelessWidget {
             ),
             verticalSpace(10),
             AppTextFormField(
+              prefixIcon: Icons.lock,
               controller: cubit.newController,
               isObscureText: true,
               hintText: "new password",
@@ -41,6 +44,7 @@ class FormChangePasswordWidget extends StatelessWidget {
             ),
             verticalSpace(10),
             AppTextFormField(
+              prefixIcon: Icons.lock,
               controller: cubit.confirmController,
               isObscureText: true,
               hintText: "confirm new password",
@@ -72,10 +76,10 @@ class FormChangePasswordWidget extends StatelessWidget {
                   },
 
                   widget: state is Loading
-                      ? CircularProgressIndicator()
+                      ? CustomProgressIndecator()
                       : Text(
                           "Change",
-                          style: AppTextStyle.appbarSize22MainColor.copyWith(
+                          style: AppTextStyle.appbarSize22WhiteColor.copyWith(
                             color: AppColors.white,
                           ),
                         ),

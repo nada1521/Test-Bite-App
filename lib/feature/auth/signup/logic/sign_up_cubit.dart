@@ -39,9 +39,14 @@ class SignupCubit extends Cubit<SignupState> {
           tokn: fcmToken,
         ),
       );
+
       result.when(
-        failure: (error) => emit(SignupState.error(error: error.toString())),
-        success: (data) => emit(SignupState.success()),
+        failure: (error) {
+          emit(SignupState.error(error: error.toString()));
+        },
+        success: (data) async {
+           emit(SignupState.success());
+           },
       );
     }
   }

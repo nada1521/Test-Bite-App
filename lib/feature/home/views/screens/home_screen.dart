@@ -33,8 +33,8 @@ import '../../../menu/view/screens/menue_screen.dart';
 import 'drower_widget.dart';
 
 class HomeAndDrawerAnimatedScreen extends StatefulWidget {
-  const HomeAndDrawerAnimatedScreen({super.key});
-
+  const HomeAndDrawerAnimatedScreen({super.key, this.countryName});
+  final String? countryName;
   @override
   State<HomeAndDrawerAnimatedScreen> createState() =>
       _HomeAndDrawerAnimatedScreenState();
@@ -86,6 +86,7 @@ class _HomeAndDrawerAnimatedScreenState
                 absorbing:
                     isDrawerOpen, // لما Drawer مفتوح يمنع الـ taps توصل للـ MenueScreen
                 child: MenueScreen(
+                  countryName: widget.countryName,
                   onPressed: () {
                     setState(() {
                       isDrawerOpen = true;

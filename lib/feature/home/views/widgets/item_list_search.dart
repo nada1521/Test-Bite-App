@@ -32,6 +32,7 @@ class ItemListSearch extends StatelessWidget {
               child: Image.network(
                 searchResult.itemImage,
                 width: 100.w,
+                height: 100.h,
                 fit: BoxFit.cover,
               ),
             ),

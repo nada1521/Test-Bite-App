@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/router/app_router_path.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../data/models/filter_category_response_model.dart';
 
@@ -25,7 +25,7 @@ class MenuItemWidget extends StatelessWidget {
             height: 90.h,
             width: 280.w,
             decoration: BoxDecoration(
-              color: AppColors.white,
+              color: NewAppColors.scaffoldBackgroundColor,
               borderRadius: BorderRadius.circular(12),
             ),
           ),

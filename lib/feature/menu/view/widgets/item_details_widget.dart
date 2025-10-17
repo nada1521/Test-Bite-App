@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tasty_bite/feature/menu/view/screens/item_details_screen.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../data/models/item_details_response_model.dart';
 import 'add_to_favorit_screen_widget.dart';
+import 'exbanded_button_widget.dart';
+import 'rich_text_string_widget.dart';
+import 'video_widget.dart';
 
 class ItemDetailsWidget extends StatefulWidget {
   const ItemDetailsWidget({super.key, required this.itemDetails});
@@ -54,7 +55,7 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
             isDescriptionSelected
                 ? Text(
                     widget.itemDetails.strInstructions,
-                    style: AppTextStyle.fontWeightNormalSize17TextClickable,
+                    style: AppTextStyle.fontWeightW500Size18TextSecondColor,
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,70 +97,6 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                     ],
                   ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class RichTextWidgetString extends StatelessWidget {
-  const RichTextWidgetString({
-    super.key,
-    required this.widget,
-    required this.title1,
-    required this.title2,
-  });
-
-  final ItemDetailsWidget widget;
-  final String title1;
-  final String title2;
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: title1,
-        style: AppTextStyle.fontWeightnormalSize16ColorTextSecond,
-        children: [
-          TextSpan(
-            text: title2,
-            style: AppTextStyle.fontWeightW400Size18TextSecondColor,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ExpandedButtonWidget extends StatelessWidget {
-  const ExpandedButtonWidget({
-    super.key,
-    required this.title,
-    required this.isDescriptionSelected,
-    this.borderRadius,
-    required this.onPressed,
-  });
-  final String title;
-  final bool isDescriptionSelected;
-  final BorderRadius? borderRadius;
-  final Function() onPressed;
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 40.h,
-        decoration: BoxDecoration(
-          color: isDescriptionSelected ? Colors.brown[900] : Colors.brown[500],
-          borderRadius:
-              borderRadius ??
-              const BorderRadius.only(
-                topRight: Radius.circular(12),
-                bottomRight: Radius.circular(12),
-              ),
-        ),
-        child: TextButton(
-          onPressed: onPressed,
-          child: Text(title, style: AppTextStyle.fontSize14Bold),
         ),
       ),
     );

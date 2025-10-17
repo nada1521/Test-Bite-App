@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/router/app_router_path.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -29,14 +30,14 @@ class SearchContainerWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(Icons.search),
+            Icon(Icons.search, color: NewAppColors.disabled),
             horizontalSpace(4),
             Text(
               "Discover global flavors",
-              style: AppTextStyle.fontWeightW500Size18TextSecondColor,
+              style: AppTextStyle.fontWeightW400Size16HintTextColor,
             ),
             Spacer(flex: 1),
-            Icon(Icons.filter_alt),
+            Icon(Icons.filter_alt, color: NewAppColors.disabled),
           ],
         ),
       ),

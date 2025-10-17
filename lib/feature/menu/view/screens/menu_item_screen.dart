@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
+import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import '../../data/models/category_menu_respons_model.dart';
 import '../logic/failter_category/failter_category_cubit.dart';
 import '../logic/failter_category/failter_category_state.dart';
@@ -17,12 +19,6 @@ class MenuItemScreen extends StatefulWidget {
 
 class _MenuItemScreenState extends State<MenuItemScreen> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   context.read<FailterCategoryCubit>().getAllCategory(
-  //     categoryName: widget.categoryModel.categoryName,
-  //   );
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +36,7 @@ class _MenuItemScreenState extends State<MenuItemScreen> {
           } else if (state is FailterCategoryFailure) {
             return Center(child: Text(state.error));
           }
-          return const Center(child: CircularProgressIndicator());
+          return const CustomProgressIndecator(color: NewAppColors.primary,);
         },
       ),
     );

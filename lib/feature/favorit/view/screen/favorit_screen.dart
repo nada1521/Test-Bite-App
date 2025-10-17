@@ -30,7 +30,7 @@ class FavoritScreen extends StatelessWidget {
           return Center(
             child: Text(
               "There are no favorite dishes yet.",
-              style: AppTextStyle.fontWeightnormalSize16ColorTextSecond,
+              style: AppTextStyle.fontWeightnormalSize16ColorTextDark,
             ),
           );
         },

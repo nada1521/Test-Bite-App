@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:tasty_bite/core/utils/app_text_style.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_state.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/router/app_router_path.dart';
-import '../../../../core/utils/app_assets.dart';
+import '../../../../core/widgets/custom_progress_indecator.dart';
 import '../../../auth/signup/logic/user_data_cubit.dart';
 import '../widgets/custom_list_title_widget.dart';
+import '../widgets/uploadied_image_widget.dart';
 
 class DrowerWidget extends StatelessWidget {
   const DrowerWidget({super.key});
@@ -21,32 +22,29 @@ class DrowerWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: 40.r,
-            child: SvgPicture.asset(AppSvgs.userProfil),
-          ),
-          verticalSpace(20),
           BlocBuilder<UserDataCubit, UserDataState>(
             builder: (context, state) {
               if (state is UserDataInitial) {
                 return const Text("No data");
               } else if (state is UserDataLoading) {
-                return const CircularProgressIndicator();
+                return const CustomProgressIndecator(color:NewAppColors.primary);
               } else if (state is UserDataError) {
                 return Text("Error: ${state.message}");
               } else if (state is UserDataSuccess) {
                 final user = state.user;
                 return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    UploadedImage(userEmail: user.email),
+                    verticalSpace(20),
                     Text(
                       "${user.firstName} ${user.lastName}",
-                      style: TextStyle(fontSize: 16),
+                      style: AppTextStyle.fontSize16BoldTextPrimaryColor,
                     ),
                   ],
                 );
               }
-              return const SizedBox.shrink(); // fallback
+              return const SizedBox.shrink();
             },
           ),
           SizedBox(height: 20),

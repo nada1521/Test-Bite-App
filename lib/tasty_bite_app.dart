@@ -20,7 +20,6 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // DeepLinksManager.handleDeepLink();
     });
   }
 

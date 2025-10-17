@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:tasty_bite/core/Networking/api_result.dart';
 import '../../../data/models/category_menu_respons_model.dart';
@@ -11,6 +13,7 @@ class CategoryCubit extends Cubit<CategoryState> {
   Future<void> getAllCategory() async {
     emit(CategoryLoading());
     final data = await menuRepo.getCategoryList();
+
     data.when(
       success: (success) {
         emit(CategorySuccess(categories: success.categories));
@@ -24,6 +27,7 @@ class CategoryCubit extends Cubit<CategoryState> {
   Future<void> getItemByCountry({required String country}) async {
     emit(CountryLoading());
     final data = await menuRepo.getItemByCountry(country: country);
+    log("country cubit $country");
     data.when(
       success: (success) {
         emit(CountrySuccess(categories: success.meals));
@@ -33,5 +37,4 @@ class CategoryCubit extends Cubit<CategoryState> {
       },
     );
   }
-
 }

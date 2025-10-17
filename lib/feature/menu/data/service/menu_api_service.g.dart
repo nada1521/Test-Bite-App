@@ -11,7 +11,7 @@ part of 'menu_api_service.dart';
 class _MenuApiService implements MenuApiService {
   _MenuApiService(
     this._dio, {
-    this.baseUrl,
+    // ignore: unused_element_parameter
     this.errorLogger,
   }) {
     baseUrl ??= 'https://www.themealdb.com/api/json/v1/1/';
