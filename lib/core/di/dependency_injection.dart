@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:tasty_bite/feature/home/views/logic/searchbyletter_cubit.dart';
 import '../../feature/auth/login/data/repos/login_repo.dart';
-import '../../feature/auth/login/logic/login_cubit.dart';
+import '../../feature/auth/login/view/logic/login_cubit.dart';
 import '../../feature/auth/signup/data/repos/signup_repos.dart';
 import '../../feature/auth/signup/logic/sign_up_cubit.dart';
 import '../../feature/favorit/view/cubit/favorit_cubit.dart';

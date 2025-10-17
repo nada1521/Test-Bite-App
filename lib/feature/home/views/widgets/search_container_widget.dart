@@ -32,7 +32,7 @@ class SearchContainerWidget extends StatelessWidget {
             Icon(Icons.search),
             horizontalSpace(4),
             Text(
-              "Discover global flavors 🌍",
+              "Discover global flavors",
               style: AppTextStyle.fontWeightW500Size18TextSecondColor,
             ),
             Spacer(flex: 1),

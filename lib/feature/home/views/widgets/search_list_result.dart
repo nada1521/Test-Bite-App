@@ -20,7 +20,7 @@ class SearchListWidget extends StatelessWidget {
               children: [
                 verticalSpace(190),
                 Text(
-                  "Start searching for your favorite dishes 🍽️",
+                  "No results found 🍽️",
                   style: AppTextStyle.fontWeightW500Size18TextSecondColor,
                 ),
               ],

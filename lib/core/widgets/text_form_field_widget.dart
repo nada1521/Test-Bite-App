@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/app_text_style.dart';
@@ -19,7 +20,7 @@ class AppTextFormField extends StatefulWidget {
   final Function(String?) validator;
   final bool? isPhoneNumber;
   final Function(CountryCode?)? onChangedCountryCode;
-  final Widget? prefixIcon;
+  final IconData? prefixIcon;
   final int? maxLines;
 
   final TextInputType? keyboardType;
@@ -58,11 +59,25 @@ class AppTextFormField extends StatefulWidget {
 
 class _AppTextFormFieldState extends State<AppTextFormField> {
   late bool _obscureText;
+  late FocusNode _focusNode;
+  bool _isFocused = false;
 
   @override
   void initState() {
     super.initState();
     _obscureText = widget.isObscureText ?? false;
+    _focusNode = FocusNode();
+    _focusNode.addListener(() {
+      setState(() {
+        _isFocused = _focusNode.hasFocus;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -70,23 +85,26 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: TextFormField(
+        focusNode: _focusNode,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onChanged: widget.onChang,
         keyboardType: widget.keyboardType,
         controller: widget.controller,
+        style: AppTextStyle.fontWeightNormalSize17TextClickable,
         decoration: InputDecoration(
           fillColor: AppColors.white,
           filled: true,
           border: InputBorder.none,
           isDense: true,
+          errorStyle: AppTextStyle.fontWeightNourmalSize14RedColor,
           contentPadding:
               widget.contentPadding ??
               EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
-          hintStyle:
-              widget.hintStyle ??
-              AppTextStyle.fontWeightRegularSize16TextSecondColor2.copyWith(
-                color: AppColors.textSecondColor,
-              ),
+          hintStyle: _isFocused
+              ? AppTextStyle.fontWeightW400Size16HintTextColor
+              : AppTextStyle.fontWeightW400Size16HintTextColor.copyWith(
+                  color: NewAppColors.disabled,
+                ),
           hintText: widget.hintText,
           suffixIcon: widget.isObscureText == true
               ? GestureDetector(
@@ -95,36 +113,27 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                       _obscureText = !_obscureText;
                     });
                   },
-                  child: Icon(
-                    _obscureText
-                        ? Icons.visibility_off_outlined
-                        : Icons.visibility_outlined,
-                  ),
+                  child: _obscureText
+                      ? Icon(
+                          Icons.visibility_off_outlined,
+                          size: 20,
+                          color: LightThemeColors.iconInactive,
+                        )
+                      : Icon(
+                          Icons.visibility_outlined,
+                          size: 20,
+                          color: LightThemeColors.iconActive,
+                        ),
                 )
               : widget.suffixIcon,
 
-          prefixIcon: widget.isPhoneNumber == true
-              ? Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: SizedBox(
-                    width: 85.h,
-                    child: Row(
-                      children: [
-                        CountryCodePicker(
-                          onChanged: widget.onChangedCountryCode,
-                          initialSelection: widget.countryCodes,
-                        ),
-
-                        Container(
-                          height: 15.h,
-                          width: 1.w,
-                          color: AppColors.black,
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              : widget.prefixIcon,
+          prefixIcon: Icon(
+            widget.prefixIcon,
+            size: 20,
+            color: _isFocused
+                ? LightThemeColors.iconActive
+                : LightThemeColors.iconInactive,
+          ),
         ),
 
         textAlign: widget.isPhoneNumber == true

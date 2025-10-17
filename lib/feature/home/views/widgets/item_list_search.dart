@@ -46,8 +46,7 @@ class ItemListSearch extends StatelessWidget {
                       searchResult.itemName,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: AppTextStyle
-                          .fontWeightRegularSize16TextSecondColor2
+                      style: AppTextStyle.fontWeightW400Size18TextSecondColor
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ],

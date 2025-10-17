@@ -160,7 +160,7 @@ class _MenuApiService implements MenuApiService {
   Future<FilterCategoryResponseModel> searchForFirstLetter(
       String firstLetter) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'f': firstLetter};
+    final queryParameters = <String, dynamic>{r's': firstLetter};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<FilterCategoryResponseModel>(Options(

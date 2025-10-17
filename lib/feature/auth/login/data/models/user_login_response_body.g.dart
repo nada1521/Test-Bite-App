@@ -16,12 +16,3 @@ UserLoginResponseBody _$UserLoginResponseBodyFromJson(
       token: json['token'] as String,
     );
 
-Map<String, dynamic> _$UserLoginResponseBodyToJson(
-        UserLoginResponseBody instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'email': instance.email,
-      'full_name': instance.userName,
-      'code': instance.code,
-      'token': instance.token,
-    };

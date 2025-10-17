@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 abstract class Failures {
   final String errorMessage;
@@ -14,6 +15,7 @@ abstract class Failures {
 
 class FailureServer extends Failures {
   FailureServer(super.errorMessage);
+
   factory FailureServer.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
@@ -24,10 +26,9 @@ class FailureServer extends Failures {
         return FailureServer('Receive  timeOut with ApiServer');
       case DioExceptionType.badCertificate:
         return FailureServer('Certificate  timeOut with ApiServer');
-
       case DioExceptionType.cancel:
         return FailureServer('Request to ApiServer with cancel');
-      case DioException.connectionError:
+      case DioExceptionType.connectionError:
         return FailureServer('No internet connection');
       case DioExceptionType.unknown:
         return FailureServer('Unexpected error, please try again!');
@@ -35,10 +36,31 @@ class FailureServer extends Failures {
         return FailureServer('oops there was an error , please try again');
     }
   }
+
+  factory FailureServer.fromPlatformException(PlatformException exception) {
+    switch (exception.code) {
+      case 'ERROR_INVALID_CREDENTIAL':
+        return FailureServer('البريد الإلكتروني أو كلمة المرور غير صحيحة.');
+      case 'ERROR_NETWORK_REQUEST_FAILED':
+        return FailureServer('حدث خطأ في الاتصال بالإنترنت');
+      case 'ERROR_USER_NOT_FOUND':
+        return FailureServer('الحساب غير موجود.');
+      case 'ERROR_WRONG_PASSWORD':
+        return FailureServer('كلمة المرور غير صحيحة.');
+      case 'ERROR_TOO_MANY_REQUESTS':
+        return FailureServer('محاولات تسجيل الدخول كثيرة، حاول لاحقًا.');
+      default:
+        return FailureServer(exception.message ?? 'حدث خطأ غير متوقع.');
+    }
+  }
+
   factory FailureServer.fromFirebaseAuthException(
     FirebaseAuthException firebaseAuthException,
   ) {
     switch (firebaseAuthException.code) {
+      // الكود الجديد - مهم جداً!
+      case 'invalid-credential':
+        return FailureServer('البريد الإلكتروني أو كلمة المرور غير صحيحة.');
       case 'invalid-email':
         return FailureServer('البريد الإلكتروني غير صالح.');
       case 'user-disabled':
@@ -57,12 +79,13 @@ class FailureServer extends Failures {
         return FailureServer('محاولات تسجيل الدخول كثيرة، حاول لاحقًا.');
       case 'network-request-failed':
         return FailureServer('حدث خطأ في الاتصال بالإنترنت');
-
+      case 'channel-error':
+        return FailureServer('حدث خطأ في الاتصال، حاول مرة أخرى.');
       default:
-        log('حدث خطأ غير معروف: ${firebaseAuthException.message}');
-        return FailureServer(
-          'حدث خطأ غير معروف: ${firebaseAuthException.message}',
+        log(
+          'حدث خطأ غير معروف: ${firebaseAuthException.code} - ${firebaseAuthException.message}',
         );
+        return FailureServer('حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى.');
     }
   }
 }

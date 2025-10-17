@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import '../../../../core/constants/firebase_strings.dart';
 
 
-  Future<String?> getUserCountry() async {
+Future<String?> getUserCountry() async {
 
      final uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) return null;

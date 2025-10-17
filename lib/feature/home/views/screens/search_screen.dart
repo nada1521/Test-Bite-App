@@ -26,7 +26,9 @@ class SearchScreen extends StatelessWidget {
                 hintText: "search",
                 prefixIcon: Icons.search,
 
-                controller: context.read<SearchbyletterCubit>().search,
+                controller: context
+                    .read<SearchbyletterCubit>()
+                    .searchController,
               ),
             ),
             SearchListWidget(),

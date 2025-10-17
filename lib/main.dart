@@ -11,6 +11,7 @@ import 'core/utils/helper/cache_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   await checkIfLoggedInUser();
@@ -19,6 +20,7 @@ void main() async {
   await HiveHelper.initHive();
   await CacheHelper.init();
   AppRouter appRouter = AppRouter();
+  
   runApp(
     EasyLocalization(
       supportedLocales: [Locale('en'), Locale('ar')],

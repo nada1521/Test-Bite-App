@@ -17,7 +17,10 @@ class LoginScreen extends StatelessWidget {
             LogoImage(),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("Login", style: AppTextStyle.fontSize32Bold),
+              child: Text(
+                "Login",
+                style: AppTextStyle.fontSize32BoldTextPrimaryColor,
+              ),
             ),
             LoginFormWidget(),
             DoNotHaveAnAccount(),

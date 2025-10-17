@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:tasty_bite/feature/menu/view/screens/item_details_screen.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../data/models/item_details_response_model.dart';
@@ -54,7 +54,7 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
             isDescriptionSelected
                 ? Text(
                     widget.itemDetails.strInstructions,
-                    style: AppTextStyle.fontWeightW600Size15,
+                    style: AppTextStyle.fontWeightNormalSize17TextClickable,
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,25 +71,28 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                         widget: widget,
                       ),
                       verticalSpace(10),
-                      AddToFavoritScreen(itemMenuModel:widget.itemDetails,),
-                      TextButton.icon(
-                        onPressed: () async {
-                          final url = Uri.parse(
-                            widget.itemDetails.strYoutube ?? "No Link",
-                          );
-                          if (await canLaunchUrl(url)) {
-                            await launchUrl(
-                              url,
-                              mode: LaunchMode.externalApplication,
-                            );
-                          }
-                        },
-                        icon: Icon(Icons.play_circle_fill, color: Colors.red),
-                        label: Text(
-                          "Watch on YouTube",
-                          style: AppTextStyle.fontWeightW600Size15,
-                        ),
+                      VideoWidget(
+                        videoUrl: widget.itemDetails.strYoutube ?? "No link !",
                       ),
+                      AddToFavoritScreen(itemMenuModel: widget.itemDetails),
+                      // TextButton.icon(
+                      //   onPressed: () async {
+                      //     final url = Uri.parse(
+                      //       widget.itemDetails.strYoutube ?? "No Link",
+                      //     );
+                      //     if (await canLaunchUrl(url)) {
+                      //       await launchUrl(
+                      //         url,
+                      //         mode: LaunchMode.externalApplication,
+                      //       );
+                      //     }
+                      //   },
+                      //   icon: Icon(Icons.play_circle_fill, color: Colors.red),
+                      //   label: Text(
+                      //     "Watch on YouTube",
+                      //     style: AppTextStyle.fontWeightW600Size15,
+                      //   ),
+                      // ),
                     ],
                   ),
           ],
@@ -98,7 +101,6 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
     );
   }
 }
-
 
 class RichTextWidgetString extends StatelessWidget {
   const RichTextWidgetString({
@@ -121,7 +123,7 @@ class RichTextWidgetString extends StatelessWidget {
         children: [
           TextSpan(
             text: title2,
-            style: AppTextStyle.fontWeightRegularSize16TextSecondColor2,
+            style: AppTextStyle.fontWeightW400Size18TextSecondColor,
           ),
         ],
       ),

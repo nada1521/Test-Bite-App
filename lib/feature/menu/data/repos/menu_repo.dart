@@ -1,6 +1,5 @@
 import '../../../../core/Networking/api_result.dart';
 import '../../../../core/helper/error/failure.dart';
-import '../../domain/entitie/search_entity.dart';
 import '../models/category_menu_respons_model.dart';
 import '../models/filter_category_response_model.dart';
 import '../models/item_details_response_model.dart';
@@ -57,19 +56,9 @@ class MenuRepo {
     required String firstLetter,
   }) async {
     try {
-      final response = await menuApiService.searchForFirstLetter(firstLetter);
-      // final meals = response.meals;
-      // final entities =
-      //     meals
-      //         ?.map(
-      //           (meal) => SearchEntity(
-      //             name: meal.name,
-      //             image: meal.image,
-      //             area: meal.area,
-      //           ),
-      //         )
-      //         .toList() ??
-      //     [];
+     
+      final response =await menuApiService.searchForFirstLetter(firstLetter);
+
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(FailureServer(error.toString()));

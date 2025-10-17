@@ -12,7 +12,10 @@ class LanguageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text("Language", style: AppTextStyle.fontWeightW600Size17ColorTextMain),
+        Text(
+          "Language",
+          style: AppTextStyle.fontWeightW600Size17ColorTextPrimaryColor,
+        ),
         horizontalSpace(10),
         InkWell(
           onTap: () async {
@@ -29,8 +32,9 @@ class LanguageWidget extends StatelessWidget {
             ),
             child: Text(
               context.locale.languageCode == 'en' ? 'English' : 'العربية',
-              style: AppTextStyle.fontWeightRegularSize16TextSecondColor2
-                  .copyWith(fontWeight: FontWeight.w800),
+              style: AppTextStyle.fontWeightW400Size18TextSecondColor.copyWith(
+                fontWeight: FontWeight.w800,
+              ),
             ),
           ),
         ),

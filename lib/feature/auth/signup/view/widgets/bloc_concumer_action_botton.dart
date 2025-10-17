@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasty_bite/core/helper/function/failure_snakbar.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import '../../../../../core/utils/app_text_style.dart';
 import '../../../../../core/utils/base/pop_up_dialog.dart';
@@ -20,15 +21,12 @@ class BlocConsumerActionButton extends StatelessWidget {
         if (state is Success) {
           showPopup(context, OtpRegisteredSuccessfullyWidget());
         } else if (state is Error) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.error)));
+          failureSnakBar(title: state.error, context: context);
           log(state.error);
         }
       },
       builder: (context, state) {
         return CustomButton(
-        
           onTap: () async {
             cubit.emitSignupStates();
           },
@@ -36,7 +34,7 @@ class BlocConsumerActionButton extends StatelessWidget {
               ? CustomProgressIndecator()
               : Text(
                   "Creat an account",
-                  style: AppTextStyle.fontSize14Bold.copyWith(fontSize: 18),
+                  style: AppTextStyle.fontWeightBoldSize20ButtomColorWhite,
                 ),
         );
       },

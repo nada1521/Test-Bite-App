@@ -40,7 +40,7 @@ class MyProfileWidget extends StatelessWidget {
                       verticalSpace(10),
                       Text(
                         "${user.firstName} ${user.lastName}",
-                        style: AppTextStyle.fontWeightW600Size20ColorTextMain,
+                        style: AppTextStyle.appbarSize22MainColor,
                       ),
                       Text(
                         user.phoneNumber,

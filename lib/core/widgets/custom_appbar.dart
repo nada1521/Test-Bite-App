@@ -10,9 +10,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title, style: AppTextStyle.appbarSize22MainColor),
-      // actions: [
-        // IconButton(onPressed: () {}, icon: Icon(Icons.search))]
-        // ,
+     
     );
   }
 

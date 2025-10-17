@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/utils/app_text_style.dart';
-import 'package:tasty_bite/feature/auth/login/logic/login_state.dart';
+import 'package:tasty_bite/feature/auth/login/view/logic/login_state.dart';
 
 import '../../../../core/helper/function/failure_snakbar.dart';
 import '../../../../core/helper/function/success_scaffold.dart';
