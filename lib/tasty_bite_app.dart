@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/helper/check_states_user.dart';
 import 'core/router/app_router.dart';
 import 'core/router/app_router_path.dart';
 import 'core/utils/app_colors.dart';
@@ -16,11 +17,22 @@ class TastyBiteApp extends StatefulWidget {
 }
 
 class _TastyBiteAppState extends State<TastyBiteApp> {
+  final checkStatesUser = CheckStatesUser();
+  bool isLoggedInUser = false;
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {});
+    check();
+  }
+
+  Future<void> check() async {
+    final isLoggedIn = await checkStatesUser.isLoagedIn();
+    setState(() {
+      isLoggedInUser = isLoggedIn;
     });
+
   }
 
   @override
@@ -41,8 +53,10 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
           locale: context.locale,
           supportedLocales: context.supportedLocales,
           localizationsDelegates: context.localizationDelegates,
-          // initialRoute: isLoggedInUser ? AppRoutes.bottomNavBar : AppRoutes.signUpScreen,
-          initialRoute: AppRoutes.loginScreen,
+          initialRoute: isLoggedInUser
+              ? AppRoutes.drowerScreen
+              : AppRoutes.signUpScreen,
+          // initialRoute: AppRoutes.loginScreen,
           onGenerateRoute: AppRouter().generatRoute,
         );
       },

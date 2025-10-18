@@ -1,4 +1,3 @@
-bool isLoggedInUser = false;
 
 class AppConstants {
   AppConstants._();
