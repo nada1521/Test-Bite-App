@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 
@@ -22,7 +23,7 @@ class AppTextFormField extends StatefulWidget {
   final Function(CountryCode?)? onChangedCountryCode;
   final IconData? prefixIcon;
   final int? maxLines;
-
+  final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final Function(String)? onChang;
   final CountryCode? countryCodes;
@@ -50,7 +51,7 @@ class AppTextFormField extends StatefulWidget {
     this.onChang,
     this.countryCodes,
 
-    this.border,
+    this.border, this.inputFormatters,
   });
 
   @override
@@ -85,11 +86,15 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: TextFormField(
+        //next  عشان يعمل
+        textInputAction: TextInputAction.next,
+        inputFormatters: widget.inputFormatters,
         focusNode: _focusNode,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onChanged: widget.onChang,
         keyboardType: widget.keyboardType,
         controller: widget.controller,
+
         style: AppTextStyle.fontWeightNormalSize17TextClickable,
         decoration: InputDecoration(
           fillColor: AppColors.white,

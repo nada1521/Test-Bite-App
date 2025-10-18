@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/helper/check_states_user.dart';
 import 'package:tasty_bite/core/helper/navigation/push_to.dart';
 import 'package:tasty_bite/core/router/app_router_path.dart';
-
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../home/views/widgets/custom_list_title_widget.dart';
+import '../../../../core/widgets/custom_list_title_widget.dart';
 
 class SettingsOptionsWidget extends StatelessWidget {
   const SettingsOptionsWidget({super.key});
@@ -33,6 +34,7 @@ class SettingsOptionsWidget extends StatelessWidget {
 }
 
 List<CustomListTitleWidget> getSettingsOption(BuildContext context) {
+  final CheckStatesUser checkStatesUser = CheckStatesUser();
   return [
     CustomListTitleWidget(
       icon: Icons.lock_outline,
@@ -41,32 +43,15 @@ List<CustomListTitleWidget> getSettingsOption(BuildContext context) {
         pushNamed(context, AppRoutes.changePasswordScreen);
       },
     ),
-    CustomListTitleWidget(
-      icon: Icons.email_outlined,
-      title: "Change Email",
-      onTap: () {},
-    ),
-    CustomListTitleWidget(
-      icon: Icons.credit_card_outlined,
-      title: "My Card",
-      onTap: () {},
-    ),
-    CustomListTitleWidget(
-      icon: Icons.description_outlined,
-      title: "Terms and conditions",
-      onTap: () {},
-    ),
 
     CustomListTitleWidget(
-      icon: Icons.privacy_tip_outlined,
-      title: "Privacy policy",
-      onTap: () {},
+      icon: Icons.logout,
+      title: "Log out",
+      onTap: () async {
+        await FirebaseAuth.instance.signOut();
+        await checkStatesUser.logOut();
+        pushReplacementNamed(context, AppRoutes.loginScreen);
+      },
     ),
-    CustomListTitleWidget(
-      icon: Icons.help_outline,
-      title: " Help & Support",
-      onTap: () {},
-    ),
-    CustomListTitleWidget(icon: Icons.logout, title: "Log out", onTap: () {}),
   ];
 }

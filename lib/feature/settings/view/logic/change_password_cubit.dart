@@ -19,7 +19,7 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
   Future<void> changePassword(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       try {
-        emit(Loading());
+        emit(LoadingChangePassword());
         final user = auth.currentUser!;
         final credential = EmailAuthProvider.credential(
           email: user.email!,
@@ -30,11 +30,11 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
         currentController.clear();
         newController.clear();
         confirmController.clear();
-        emit(Success());
+        emit(SuccessChangePassword());
       } on FirebaseAuthException catch (e) {
-         log("Firebase error ❌: ${e.code}");
+        log("Firebase error ❌: ${e.code}");
         final failure = FailureServer.fromFirebaseAuthException(e);
-        emit(Failure(errorMessage: failure));
+        emit(FailureChangePassword(errorMessage: failure));
       }
     }
   }

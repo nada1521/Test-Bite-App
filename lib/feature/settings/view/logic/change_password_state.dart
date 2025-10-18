@@ -4,12 +4,12 @@ abstract class ChangePasswordState {}
 
 class Initial extends ChangePasswordState {}
 
-class Loading extends ChangePasswordState {}
+class LoadingChangePassword extends ChangePasswordState {}
 
-class Success extends ChangePasswordState {}
+class SuccessChangePassword extends ChangePasswordState {}
 
-class Failure extends ChangePasswordState {
+class FailureChangePassword extends ChangePasswordState {
   final FailureServer errorMessage;
 
-  Failure({required this.errorMessage});
+  FailureChangePassword({required this.errorMessage});
 }

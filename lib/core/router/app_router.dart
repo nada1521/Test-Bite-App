@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_cubit.dart';
-import 'package:tasty_bite/feature/home/views/logic/searchbyletter_cubit.dart';
-import 'package:tasty_bite/feature/home/views/screens/search_screen.dart';
+import 'package:tasty_bite/feature/search/logic/search_by_letter_cubit.dart';
+import 'package:tasty_bite/feature/search/view/screen/search_screen.dart';
 import 'package:tasty_bite/feature/settings/view/logic/change_password_cubit.dart';
 import 'package:tasty_bite/feature/settings/view/screens/change_password_screen.dart';
 import 'package:tasty_bite/feature/settings/view/screens/setings_screen.dart';
@@ -12,15 +12,15 @@ import '../../feature/auth/signup/logic/sign_up_cubit.dart';
 import '../../feature/auth/signup/view/screen/signup_screen.dart';
 import '../../feature/favorit/view/cubit/favorit_cubit.dart';
 import '../../feature/favorit/view/screen/favorit_screen.dart';
-import '../../feature/home/views/screens/home_screen.dart';
-import '../../feature/menu/data/models/category_menu_respons_model.dart';
-import '../../feature/menu/data/models/filter_category_response_model.dart';
-import '../../feature/menu/view/logic/category_list/category_cubit.dart';
-import '../../feature/menu/view/logic/failter_category/failter_category_cubit.dart';
-import '../../feature/menu/view/logic/item_details/item_details_cubit.dart';
-import '../../feature/menu/view/screens/item_details_screen.dart';
-import '../../feature/menu/view/screens/menu_item_screen.dart';
-import '../../feature/menu/view/screens/menue_screen.dart';
+import '../../feature/layout/screens/home_and_drawer_screen.dart';
+import '../../feature/home/data/models/category_menu_respons_model.dart';
+import '../../feature/home/data/models/filter_category_response_model.dart';
+import '../../feature/home/view/logic/category_list/category_cubit.dart';
+import '../../feature/home/view/logic/failter_category/failter_category_cubit.dart';
+import '../../feature/home/view/logic/item_details/item_details_cubit.dart';
+import '../../feature/home/view/screens/item_details_screen.dart';
+import '../../feature/home/view/screens/menu_item_screen.dart';
+import '../../feature/home/view/screens/home_screen.dart';
 import '../di/dependency_injection.dart';
 import 'app_router_path.dart';
 
@@ -78,11 +78,11 @@ class AppRouter {
           ),
           settings: settings,
         );
-      case AppRoutes.menueScreen:
+      case AppRoutes.homeScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (_) => getIt<CategoryCubit>()..getAllCategory(),
-            child: MenueScreen(
+            child: HomeScreen(
               onPressed: () {},
               countryName: settings.arguments as String?,
             ),
@@ -104,13 +104,14 @@ class AppRouter {
         );
       case AppRoutes.searchScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<SearchbyletterCubit>(
-            create: (_) => getIt<SearchbyletterCubit>(),
+          builder: (context) => BlocProvider<SearchByLetterCubit>(
+            create: (_) => getIt<SearchByLetterCubit>(),
             child: SearchScreen(),
           ),
         );
 
-      case AppRoutes.drowerScreen:
+      case AppRoutes.homeAndDrowerScreen:
+        final countryName = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
@@ -125,7 +126,7 @@ class AppRouter {
                 create: (context) => UserDataCubit()..loadUserData(),
               ),
             ],
-            child: HomeAndDrawerAnimatedScreen(),
+            child: HomeAndDrawerAnimatedScreen(countryName: countryName),
           ),
         );
       default:

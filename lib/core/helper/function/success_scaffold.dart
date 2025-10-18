@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_style.dart';
@@ -12,7 +13,7 @@ void successShowSnackBar({required String title,context}) {
           color: AppColors.white,
         ),
       ),
-      backgroundColor: AppColors.green,
+      backgroundColor: NewAppColors.success,
       duration: Duration(seconds: 2),
     ),
   );

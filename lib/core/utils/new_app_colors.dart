@@ -20,8 +20,13 @@ class NewAppColors {
   static const Color disabled = Color(0xFFBFBFBF);
 
   // Basic colors
+  static const Color containerBackgroundColor = Color(0xffFFFDF9);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
+  static const Color black12 = Colors.black12;
+    static const Color transparent = Colors.transparent;
+
+  static const Color bagelight = Color(0xFFF5F5DC);
 }
 
 class LightThemeColors {
@@ -29,7 +34,6 @@ class LightThemeColors {
   static const Color background = Color(0xFFFFFDF9);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color appBar = NewAppColors.primary;
-
   static const Color divider = Color(0xFFDADADA);
 
   // Text
@@ -45,6 +49,9 @@ class LightThemeColors {
   static const Color inputBackground = Colors.white;
 
   // Buttons
+  static const Color containerBackground = Color(0x1A146017);
+  static const Color containerBackground2 = Color(0x1FE7A33E);
+
   static const Color primaryButton = NewAppColors.primary;
   static const Color secondaryButton = NewAppColors.secondary;
   static const Color accentButton = NewAppColors.accent;

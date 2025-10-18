@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
-
-import '../../../menu/data/models/item_details_response_model.dart';
-
+import '../../../home/data/models/item_details_response_model.dart';
 part 'favorit_state.dart';
 
 class FavoritesCubit extends Cubit<FavoritesState> {
@@ -17,7 +15,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
 
   void removItem(ItemDetailsModel item) {
     favorites.removeWhere((fav) => fav.idMeal == item.idMeal);
-   
+
     if (favorites.isEmpty) {
       emit(NoFavoriteItems());
     } else {

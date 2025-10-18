@@ -50,8 +50,26 @@ Future<T?> pushNamed<T>(
 
 Future pushReplacementNamed<T>(
   BuildContext context,
-String routeName, {
+  String routeName, {
   Object? arguments,
 }) async {
-  return Navigator.pushReplacementNamed(context ,routeName, arguments: arguments);
+  return Navigator.pushReplacementNamed(
+    context,
+    routeName,
+    arguments: arguments,
+  );
+}
+
+Future pushNamedAndRemoveUntil<T>(
+  BuildContext context,
+  String routeName, {
+  Object? arguments,
+}
+) async {
+  return Navigator.pushNamedAndRemoveUntil(
+    context,
+    routeName,
+    (routeName) => false,
+    arguments: arguments,
+  );
 }

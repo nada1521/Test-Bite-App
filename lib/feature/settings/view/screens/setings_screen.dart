@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/app_colors.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/widgets/custom_appbar.dart';
 import '../widgets/my_profile_widget.dart';
 import '../widgets/settings_option_widget.dart';
 
@@ -10,7 +10,8 @@ class SetingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(title: 'Settings', centerTitle: false),
+      backgroundColor: AppColors.scaffoldBackgroundColor,
+      appBar: AppBar(title:Text("Settings") ),
       body: SingleChildScrollView(
         child: Column(
           children: [

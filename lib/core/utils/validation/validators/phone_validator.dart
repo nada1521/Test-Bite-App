@@ -4,29 +4,7 @@ abstract class PhoneValidator {
   static const int validDigitsAfter966 = 10; // 0 + 9 digits
 
   /// ✅ Normalize رقم الهاتف السعودي لأي صيغة إلى صيغة واحدة (96605XXXXXXXX)
-  static String normalizeSaudiPhoneNumber(String phone) {
-    phone = phone.replaceAll(' ', '').replaceFirst('+', '');
 
-    // استبدال 00966 بـ 966
-    if (phone.startsWith('00966')) {
-      phone = phone.replaceFirst('00966', '966');
-    }
-
-    // لو الرقم بادئ بـ 05 → نشيل الـ 0 ونضيف 966
-    if (phone.startsWith('05')) {
-      phone = '966${phone.substring(1)}';
-    }
-
-    // لو الرقم بادئ بـ 966 وبعدين 5 → نضيف صفر بعد 966
-    if (phone.startsWith('966') && phone.length >= 12) {
-      final digitsAfter966 = phone.substring(3);
-      if (!digitsAfter966.startsWith('0')) {
-        phone = '9660$digitsAfter966';
-      }
-    }
-
-    return phone;
-  }
 
   /// ✅ فحص صلاحية الرقم السعودي بعد التنظيف
   static isPhoneNumberValid(String phone) {
@@ -36,9 +14,9 @@ abstract class PhoneValidator {
     if (phone.length < 10) {
       return "Phone number is short";
     }
-    //  else if (phone.length < 11) {
-    //     return "Phone number is tall";
-    //   }
+     else if (phone.length > 11) {
+        return "Phone number is not valid";
+      }
     return null;
   }
 

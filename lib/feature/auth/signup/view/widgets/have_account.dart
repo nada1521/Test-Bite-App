@@ -4,8 +4,8 @@ import '../../../../../core/helper/navigation/push_to.dart';
 import '../../../../../core/router/app_router_path.dart';
 import '../../../../../core/utils/app_text_style.dart';
 
-class HaveAccount extends StatelessWidget {
-  const HaveAccount({super.key});
+class HaveAccountWidget extends StatelessWidget {
+  const HaveAccountWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class HaveAccount extends StatelessWidget {
           children: [
             TextSpan(
               text: "Do you have an account? ",
-              style: AppTextStyle.fontWeightnormalSize16ColorTextSecond,
+              style: AppTextStyle.fontWeightnormalSize16ColorTextDark,
             ),
             TextSpan(
               text: "Login",

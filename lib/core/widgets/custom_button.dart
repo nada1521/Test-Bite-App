@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
-
-import '../utils/app_colors.dart';
 import '../utils/app_text_style.dart';
 
 class CustomButton extends StatelessWidget {
@@ -29,9 +27,9 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: EdgeInsets.symmetric(vertical: 10.h),
         width: width ?? double.infinity,
-        height: height ?? 49.h,
+        height: height ?? 55.h,
         decoration: BoxDecoration(
           color: NewAppColors.primary,
           borderRadius: BorderRadius.circular(18.r),
@@ -41,7 +39,7 @@ class CustomButton extends StatelessWidget {
               widget ??
               Text(
                 title ?? "",
-                style: AppTextStyle.fontSize14Bold.copyWith(fontSize: 18),
+                style: AppTextStyle.fontWeightBoldSize16ButtomColorWhite,
               ),
         ),
       ),
