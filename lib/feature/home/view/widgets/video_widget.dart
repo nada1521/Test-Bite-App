@@ -1,7 +1,7 @@
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoWidget extends StatefulWidget {
@@ -34,7 +34,6 @@ class _VideoWidgetState extends State<VideoWidget> {
     );
   }
 
-
   @override
   void dispose() {
     _controller.dispose();
@@ -44,17 +43,20 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayer(
-      controller: _controller,
-      showVideoProgressIndicator: true,
-      progressIndicatorColor: Colors.red,
-      progressColors: ProgressBarColors(
-        playedColor: Colors.red,
-        handleColor: Colors.redAccent,
+    return SizedBox(
+      height: 185.h,
+      child: YoutubePlayer(
+        controller: _controller,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: Colors.red,
+        progressColors: ProgressBarColors(
+          playedColor: Colors.red,
+          handleColor: Colors.redAccent,
+        ),
+        onReady: () {
+          log('المشغل جاهز');
+        },
       ),
-      onReady: () {
-        log('المشغل جاهز');
-      },
     );
   }
 }
