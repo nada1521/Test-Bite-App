@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/helper/spacing.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_text_style.dart';
-import '../../../../core/utils/common/languages.dart';
+import '../../../core/helper/spacing.dart';
+import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_text_style.dart';
+import '../../../core/utils/common/languages.dart';
 
 class LanguageWidget extends StatelessWidget {
   const LanguageWidget({super.key});

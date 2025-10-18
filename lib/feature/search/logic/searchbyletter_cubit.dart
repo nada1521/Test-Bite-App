@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:tasty_bite/feature/menu/data/models/filter_category_response_model.dart';
+import 'package:tasty_bite/feature/home/data/models/filter_category_response_model.dart';
 
-import '../../../../core/Networking/api_result.dart';
-import '../../../menu/data/repos/menu_repo.dart';
+import '../../../core/Networking/api_result.dart';
+import '../../home/data/repos/menu_repo.dart';
 
 part 'searchbyletter_state.dart';
 

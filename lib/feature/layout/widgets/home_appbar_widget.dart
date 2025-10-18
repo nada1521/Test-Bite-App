@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/helper/navigation/push_to.dart';
-import '../../../../core/utils/app_text_style.dart';
-import '../../../settings/view/screens/setings_screen.dart';
+import '../../../core/helper/navigation/push_to.dart';
+import '../../../core/utils/app_text_style.dart';
+import '../../settings/view/screens/setings_screen.dart';
 
 class HomeAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppbarWidget({super.key});

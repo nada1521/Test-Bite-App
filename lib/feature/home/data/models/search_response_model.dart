@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../domain/entitie/search_entity.dart';
+import '../../../search/domain/entitie/search_entity.dart';
 part 'search_response_model.g.dart';
 
 @JsonSerializable()

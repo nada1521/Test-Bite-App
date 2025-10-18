@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/utils/app_text_style.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_state.dart';
-import '../../../../core/helper/navigation/push_to.dart';
-import '../../../../core/helper/spacing.dart';
-import '../../../../core/router/app_router_path.dart';
-import '../../../../core/widgets/custom_progress_indecator.dart';
-import '../../../auth/signup/logic/user_data_cubit.dart';
+import '../../../core/helper/navigation/push_to.dart';
+import '../../../core/helper/spacing.dart';
+import '../../../core/router/app_router_path.dart';
+import '../../../core/widgets/custom_progress_indecator.dart';
+import '../../auth/signup/logic/user_data_cubit.dart';
 import '../widgets/custom_list_title_widget.dart';
 import '../widgets/uploadied_image_widget.dart';
 

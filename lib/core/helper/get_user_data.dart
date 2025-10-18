@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../../../../core/constants/firebase_strings.dart';
+import '../constants/firebase_strings.dart';
 
 abstract class GetUserData {
   static Future<String?> getUserCountry() async {

@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:tasty_bite/feature/home/views/logic/searchbyletter_cubit.dart';
+import 'package:tasty_bite/feature/search/logic/searchbyletter_cubit.dart';
 import '../../feature/auth/login/data/repos/login_repo.dart';
 import '../../feature/auth/login/view/logic/login_cubit.dart';
 import '../../feature/auth/signup/data/repos/signup_repos.dart';
 import '../../feature/auth/signup/logic/sign_up_cubit.dart';
 import '../../feature/favorit/view/cubit/favorit_cubit.dart';
-import '../../feature/menu/data/repos/menu_repo.dart';
-import '../../feature/menu/data/service/menu_api_service.dart';
-import '../../feature/menu/view/logic/category_list/category_cubit.dart';
-import '../../feature/menu/view/logic/failter_category/failter_category_cubit.dart';
-import '../../feature/menu/view/logic/item_details/item_details_cubit.dart';
+import '../../feature/home/data/repos/menu_repo.dart';
+import '../../feature/home/data/service/menu_api_service.dart';
+import '../../feature/home/view/logic/category_list/category_cubit.dart';
+import '../../feature/home/view/logic/failter_category/failter_category_cubit.dart';
+import '../../feature/home/view/logic/item_details/item_details_cubit.dart';
 
 final getIt = GetIt.instance;
 

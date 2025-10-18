@@ -6,8 +6,8 @@ import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../../auth/signup/data/user_remote_data_source.dart';
-import '../../../home/data/models/get_user_data.dart';
-import '../../../home/views/widgets/search_container_widget.dart';
+import '../../../../core/helper/get_user_data.dart';
+import '../../../layout/widgets/search_container_widget.dart';
 import '../widgets/food_horizontal_list.dart';
 import '../widgets/menu_list_view_item_widget.dart';
 

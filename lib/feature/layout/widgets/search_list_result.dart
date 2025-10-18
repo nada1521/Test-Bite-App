@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
-import 'package:tasty_bite/feature/home/views/logic/searchbyletter_cubit.dart';
-import 'package:tasty_bite/feature/home/views/widgets/item_list_search.dart';
-import '../../../../core/helper/spacing.dart';
-import '../../../../core/utils/app_text_style.dart';
+import 'package:tasty_bite/feature/search/logic/searchbyletter_cubit.dart';
+import 'package:tasty_bite/feature/layout/widgets/item_list_search.dart';
+import '../../../core/helper/spacing.dart';
+import '../../../core/utils/app_text_style.dart';
 
 class SearchListWidget extends StatelessWidget {
   const SearchListWidget({super.key});

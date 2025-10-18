@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
-import '../../../menu/view/screens/menue_screen.dart';
+import '../../home/view/screens/menue_screen.dart';
 
 import 'drower_widget.dart';
 

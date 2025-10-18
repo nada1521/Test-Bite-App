@@ -5,7 +5,7 @@ import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/router/app_router_path.dart';
 import '../../../../core/utils/app_text_style.dart';
-import '../../../menu/data/models/item_details_response_model.dart';
+import '../../../home/data/models/item_details_response_model.dart';
 import '../cubit/favorit_cubit.dart';
 
 class FavoritItem extends StatelessWidget {
