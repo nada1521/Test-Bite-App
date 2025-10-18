@@ -6,7 +6,7 @@ import 'package:tasty_bite/core/helper/navigation/push_to.dart';
 import 'package:tasty_bite/core/router/app_router_path.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../layout/widgets/custom_list_title_widget.dart';
+import '../../../../core/widgets/custom_list_title_widget.dart';
 
 class SettingsOptionsWidget extends StatelessWidget {
   const SettingsOptionsWidget({super.key});

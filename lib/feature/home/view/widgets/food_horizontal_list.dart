@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
-import '../../../layout/widgets/food_card.dart';
+import 'category_item_card.dart';
 import '../logic/category_list/category_cubit.dart';
 
 class FoodHorizontalList extends StatelessWidget {
@@ -25,7 +25,7 @@ class FoodHorizontalList extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: state.categories.length,
               itemBuilder: (context, index) =>
-                  FoodCard(foodmodel: state.categories[index]),
+                  CategoryItemCard(foodmodel: state.categories[index]),
             ),
           );
         } else if (state is CategoryFailure) {

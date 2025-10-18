@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
-import '../../../core/utils/app_text_style.dart';
+import '../utils/app_text_style.dart';
 
 class UploadedImage extends StatefulWidget {
   final String userEmail;

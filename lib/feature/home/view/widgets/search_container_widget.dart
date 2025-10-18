@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/router/app_router_path.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
-import '../../../core/helper/navigation/push_to.dart';
-import '../../../core/helper/spacing.dart';
-import '../../../core/utils/app_colors.dart';
-import '../../../core/utils/app_text_style.dart';
+import '../../../../core/helper/navigation/push_to.dart';
+import '../../../../core/helper/spacing.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_text_style.dart';
 
 class SearchContainerWidget extends StatelessWidget {
   const SearchContainerWidget({super.key});

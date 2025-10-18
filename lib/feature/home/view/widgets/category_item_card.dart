@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/helper/navigation/push_to.dart';
-import '../../../core/helper/spacing.dart';
-import '../../../core/router/app_router_path.dart';
-import '../../../core/utils/app_text_style.dart';
-import '../../home/data/models/category_menu_respons_model.dart';
+import '../../../../core/helper/navigation/push_to.dart';
+import '../../../../core/helper/spacing.dart';
+import '../../../../core/router/app_router_path.dart';
+import '../../../../core/utils/app_text_style.dart';
+import '../../data/models/category_menu_respons_model.dart';
 
-class FoodCard extends StatelessWidget {
-  const FoodCard({super.key, required this.foodmodel});
+class CategoryItemCard extends StatelessWidget {
+  const CategoryItemCard({super.key, required this.foodmodel});
   final CategoryModel foodmodel;
   @override
   Widget build(BuildContext context) {

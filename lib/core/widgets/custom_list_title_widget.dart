@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
-import '../../../core/utils/app_text_style.dart';
+import '../utils/app_text_style.dart';
 
 class CustomListTitleWidget extends StatelessWidget {
   const CustomListTitleWidget({
