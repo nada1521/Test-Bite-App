@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
@@ -25,8 +26,8 @@ class MenuItemWidget extends StatelessWidget {
             height: 90.h,
             width: 280.w,
             decoration: BoxDecoration(
-              color: NewAppColors.scaffoldBackgroundColor,
-              borderRadius: BorderRadius.circular(12),
+              color: NewAppColors.containerBackgroundColor,
+              borderRadius: BorderRadius.circular(12.r),
             ),
           ),
           Row(
@@ -38,7 +39,9 @@ class MenuItemWidget extends StatelessWidget {
                 transitionOnUserGestures: true,
                 child: CircleAvatar(
                   radius: 50.r,
-                  backgroundImage: NetworkImage(categoryMenu.itemImage),
+                  backgroundImage: CachedNetworkImageProvider(
+                    categoryMenu.itemImage,
+                  ),
                 ),
               ),
               horizontalSpace(12),
@@ -49,7 +52,7 @@ class MenuItemWidget extends StatelessWidget {
                     Hero(
                       tag: categoryMenu.itemName,
                       child: Material(
-                        color: Colors.transparent,
+                        color: NewAppColors.transparent,
                         child: Text(
                           categoryMenu.itemName,
                           style: AppTextStyle.fontWeightBoldSize18TextMedium,

@@ -60,7 +60,7 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
           supportedLocales: context.supportedLocales,
           localizationsDelegates: context.localizationDelegates,
           initialRoute: isLoggedInUser
-              ? AppRoutes.drowerScreen
+              ? AppRoutes.homeAndDrowerScreen
               : AppRoutes.signUpScreen,
 
           onGenerateRoute: AppRouter().generatRoute,

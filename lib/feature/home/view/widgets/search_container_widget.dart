@@ -4,7 +4,6 @@ import 'package:tasty_bite/core/router/app_router_path.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_style.dart';
 
 class SearchContainerWidget extends StatelessWidget {
@@ -23,8 +22,8 @@ class SearchContainerWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8),
 
         decoration: BoxDecoration(
-          border: Border.all(color: AppColors.grey),
-          color: AppColors.white,
+          border: Border.all(color: NewAppColors.disabled),
+          color: NewAppColors.white,
           borderRadius: BorderRadius.circular(14.r),
         ),
         child: Row(

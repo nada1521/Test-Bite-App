@@ -16,7 +16,7 @@ class SearchItemList extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: NewAppColors.scaffoldBackgroundColor,
+        color: NewAppColors.containerBackgroundColor,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: InkWell(
@@ -30,7 +30,7 @@ class SearchItemList extends StatelessWidget {
                 topStart: Radius.circular(12.r),
                 bottomStart: Radius.circular(12.r),
               ),
-              child: CachedNetworkImageWidget(searchResult: searchResult),
+              child: CachedNetworkImageWidget(imageUrl: searchResult.itemImage),
             ),
             SizedBox(
               width: 220.w,

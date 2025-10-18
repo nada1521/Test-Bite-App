@@ -11,7 +11,7 @@ class NewAppColors {
   static const Color error = Color(0xFFC62828);
   static const Color success = Color(0xFF2E7D32);
   static const Color warning = Color(0xFFFF9800);
-  static const Color info = Color(0xFF0288D1); 
+  static const Color info = Color(0xFF0288D1);
 
   // Neutral / Typography
   static const Color textDark = Color(0xFF333333);
@@ -20,11 +20,13 @@ class NewAppColors {
   static const Color disabled = Color(0xFFBFBFBF);
 
   // Basic colors
-  static const Color scaffoldBackgroundColor = Color(0xffFFFDF9);
+  static const Color containerBackgroundColor = Color(0xffFFFDF9);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
-    static const Color black12 = Colors.black12;
+  static const Color black12 = Colors.black12;
+    static const Color transparent = Colors.transparent;
 
+  static const Color bagelight = Color(0xFFF5F5DC);
 }
 
 class LightThemeColors {

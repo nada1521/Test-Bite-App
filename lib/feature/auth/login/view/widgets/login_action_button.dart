@@ -18,7 +18,7 @@ class LoginActionButton extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is Success) {
-          pushNamedAndRemoveUntil(context, AppRoutes.drowerScreen);
+          pushNamedAndRemoveUntil(context, AppRoutes.homeAndDrowerScreen);
         } else if (state is Error) {
           failureSnakBar(title: state.error, context: context);
         }

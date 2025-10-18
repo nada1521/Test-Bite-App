@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../core/Networking/api_result.dart';
 import '../../home/data/models/filter_category_response_model.dart';
 import '../../home/data/repos/menu_repo.dart';
-
 part 'search_by_letter_state.dart';
 
 class SearchByLetterCubit extends Cubit<SearchByLetterState> {

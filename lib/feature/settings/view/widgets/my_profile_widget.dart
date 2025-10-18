@@ -23,7 +23,7 @@ class MyProfileWidget extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             padding: EdgeInsets.all(10.r),
             decoration: BoxDecoration(
-              color: NewAppColors.scaffoldBackgroundColor,
+              color: NewAppColors.containerBackgroundColor,
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: Row(
@@ -37,8 +37,7 @@ class MyProfileWidget extends StatelessWidget {
                       verticalSpace(10),
                       Text(
                         "${user.firstName} ${user.lastName}",
-                        style: AppTextStyle.fontWeightW700Size18ColorPrimary
-                        ,
+                        style: AppTextStyle.fontWeightW700Size18ColorPrimary,
                       ),
                       Text(
                         user.phoneNumber,
@@ -55,7 +54,7 @@ class MyProfileWidget extends StatelessWidget {
             ),
           );
         }
-        return CustomProgressIndecator(color: NewAppColors.primary,);
+        return CustomProgressIndecator(color: NewAppColors.primary);
       },
     );
   }

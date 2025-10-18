@@ -27,7 +27,7 @@ class BlocConsumerActionButton extends StatelessWidget {
           );
           pushNamedAndRemoveUntil(
             context,
-            AppRoutes.drowerScreen,
+            AppRoutes.homeAndDrowerScreen,
             arguments: getIt<SignupCubit>().countryController.text,
           );
         } else if (state is Error) {

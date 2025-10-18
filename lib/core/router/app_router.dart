@@ -20,7 +20,7 @@ import '../../feature/home/view/logic/failter_category/failter_category_cubit.da
 import '../../feature/home/view/logic/item_details/item_details_cubit.dart';
 import '../../feature/home/view/screens/item_details_screen.dart';
 import '../../feature/home/view/screens/menu_item_screen.dart';
-import '../../feature/home/view/screens/menue_screen.dart';
+import '../../feature/home/view/screens/home_screen.dart';
 import '../di/dependency_injection.dart';
 import 'app_router_path.dart';
 
@@ -78,11 +78,11 @@ class AppRouter {
           ),
           settings: settings,
         );
-      case AppRoutes.menueScreen:
+      case AppRoutes.homeScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (_) => getIt<CategoryCubit>()..getAllCategory(),
-            child: MenueScreen(
+            child: HomeScreen(
               onPressed: () {},
               countryName: settings.arguments as String?,
             ),
@@ -110,7 +110,7 @@ class AppRouter {
           ),
         );
 
-      case AppRoutes.drowerScreen:
+      case AppRoutes.homeAndDrowerScreen:
         final countryName = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(

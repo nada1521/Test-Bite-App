@@ -16,7 +16,7 @@ class ItemWidget extends StatelessWidget {
       height: 100.h,
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: NewAppColors.scaffoldBackgroundColor,
+        color: NewAppColors.containerBackgroundColor,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: InkWell(
