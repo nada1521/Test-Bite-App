@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/widgets/text_form_field_widget.dart';
 import '../../../../../core/helper/spacing.dart';
-import '../../data/models/text_field_model.dart';
-import 'custom_text_field_widget.dart';
 
 class ListViewFormWidget extends StatelessWidget {
-  final List<TextFieldModel> textFieldModels;
+  final List<AppTextFormField> textFieldModels;
   const ListViewFormWidget({super.key, required this.textFieldModels});
 
   @override
@@ -12,9 +12,9 @@ class ListViewFormWidget extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.symmetric(vertical: 10.h),
       itemCount: textFieldModels.length,
-      itemBuilder: (context, index) =>
-          CustomTextFieldWidget(textFieldModel: textFieldModels[index]),
+      itemBuilder: (context, index) => textFieldModels[index],
       separatorBuilder: (context, index) => verticalSpace(15),
     );
   }

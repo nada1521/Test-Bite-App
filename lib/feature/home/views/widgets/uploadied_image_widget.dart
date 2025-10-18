@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/utils/app_assets.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
+import '../../../../core/utils/app_text_style.dart';
 
 class UploadedImage extends StatefulWidget {
   final String userEmail;
@@ -46,26 +46,34 @@ class _UploadedImageState extends State<UploadedImage> {
             children: [
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text('اختيار من المعرض'),
+                title: Text(
+                  "Selection from the gallery",
+                  style: AppTextStyle.fontWeightW400Size18TextDark,
+                ),
                 onTap: () async {
-                  final image =
-                      await picker.pickImage(source: ImageSource.gallery);
+                  final image = await picker.pickImage(
+                    source: ImageSource.gallery,
+                  );
                   Navigator.pop(context, image);
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.camera_alt),
-                title: const Text('استخدام الكاميرا'),
+                leading: Icon(Icons.camera_alt),
+                title: Text(
+                  "Use the camera",
+                  style: AppTextStyle.fontWeightW400Size18TextDark,
+                ),
                 onTap: () async {
-                  final image =
-                      await picker.pickImage(source: ImageSource.camera);
+                  final image = await picker.pickImage(
+                    source: ImageSource.camera,
+                  );
                   Navigator.pop(context, image);
                 },
               ),
               if (_pickedImage != null)
                 ListTile(
                   leading: const Icon(Icons.image),
-                  title: const Text('عرض الصورة'),
+                  title: const Text("View current image"),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(
@@ -100,11 +108,15 @@ class _UploadedImageState extends State<UploadedImage> {
     return GestureDetector(
       onTap: _pickImage,
       child: CircleAvatar(
-        radius: 40.r,
-        backgroundColor: Colors.grey.shade200,
+        radius: 50.r,
+        backgroundColor: NewAppColors.textLight.withAlpha(40),
         backgroundImage: _pickedImage != null ? FileImage(_pickedImage!) : null,
         child: _pickedImage == null
-            ? SvgPicture.asset(AppSvgs.userProfil, width: 50.w, height: 50.h)
+            ? Icon(
+                Icons.person,
+                size: 80.r,
+                color: NewAppColors.disabled.withAlpha(120),
+              )
             : null,
       ),
     );
@@ -142,16 +154,20 @@ class _ImageScreenState extends State<ImageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile Image"),),
+        title: Text(
+          "Profile Image",
+          style: AppTextStyle.appbarSize22WhiteColor,
+        ),
+      ),
       body: Center(
         child: _imagePath != null && File(_imagePath!).existsSync()
             ? Image.file(
                 File(_imagePath!),
-                fit: BoxFit.contain, 
+                fit: BoxFit.contain,
                 width: double.infinity,
                 height: double.infinity,
               )
-            : const Text('لا توجد صورة محفوظة'),
+            : const Text("No image saved"),
       ),
     );
   }

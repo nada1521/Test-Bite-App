@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasty_bite/core/utils/app_text_style.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../../core/constants/select_country_list.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../../logic/sign_up_cubit.dart';
 
 class DropdownSelscteWidget extends StatefulWidget {
@@ -29,7 +29,7 @@ class _DropdownSelscteWidgetState extends State<DropdownSelscteWidget> {
       child: DropdownButtonFormField<String>(
         decoration: InputDecoration(
           filled: true,
-          fillColor: AppColors.white,
+          fillColor: NewAppColors.white,
           border: InputBorder.none,
         ),
         style: AppTextStyle.fontWeightNormalSize17TextClickable,

@@ -1,50 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:tasty_bite/core/widgets/text_form_field_widget.dart';
 
-import '../../feature/auth/signup/data/models/text_field_model.dart';
 import '../../feature/auth/signup/logic/sign_up_cubit.dart';
 import '../utils/validation/app_validation.dart';
 import '../utils/validation/validators/phone_validator.dart';
 
-List<TextFieldModel> signupFormList(SignupCubit cubit) {
+List<AppTextFormField> signupFormList(SignupCubit cubit) {
   return [
-    TextFieldModel(
-      controller: cubit.firstNameController,
-      hintText: "First name",
-      validator: (value) => AppValidation.nameValidation(value),
-      prefixIcon: Icons.person,
-    ),
-    TextFieldModel(
-      controller: cubit.lastNameController,
-      hintText: "Last name",
-      validator: (value) => AppValidation.fullNameValidation(value),
-      prefixIcon: Icons.person,
-    ),
-    TextFieldModel(
+    
+    AppTextFormField(
       prefixIcon: Icons.phone_android,
       controller: cubit.phoneController,
       hintText: "Phone number",
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      keyboardType: TextInputType.phone,
       validator: (phoneNumber) =>
           PhoneValidator.isPhoneNumberValid(phoneNumber ?? ""),
     ),
-    TextFieldModel(
+   
+
+  
+    AppTextFormField(
       controller: cubit.emailController,
       prefixIcon: Icons.email,
       hintText: "Email",
       validator: (value) => AppValidation.emailValidation(value),
+      keyboardType: TextInputType.emailAddress,
     ),
 
-    TextFieldModel(
+    AppTextFormField(
       controller: cubit.passwordController,
       hintText: "Password",
-      isPassword: true,
+      isObscureText: true,
       prefixIcon: Icons.lock,
       validator: (password) => AppValidation.passwordValidation(password),
+      keyboardType: TextInputType.visiblePassword,
     ),
-    TextFieldModel(
+    AppTextFormField(
       controller: cubit.confirmPasswordController,
       prefixIcon: Icons.lock,
       hintText: "Confirm password",
-      isPassword: true,
+      isObscureText: true,
+      keyboardType: TextInputType.visiblePassword,
       validator: (confirmPassword) => AppValidation.confirmPasswordValidation(
         cubit.passwordController.text,
         confirmPassword,

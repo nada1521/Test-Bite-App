@@ -52,9 +52,7 @@ class MenuItemWidget extends StatelessWidget {
                         color: Colors.transparent,
                         child: Text(
                           categoryMenu.itemName,
-                          style: AppTextStyle
-                              .fontWeightW400Size18TextSecondColor
-                              .copyWith(fontWeight: FontWeight.bold),
+                          style: AppTextStyle.fontWeightBoldSize18TextMedium,
                         ),
                       ),
                     ),

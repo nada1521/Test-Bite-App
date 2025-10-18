@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/utils/app_text_style.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
-import 'package:tasty_bite/feature/auth/login/view/logic/login_state.dart';
-
 import '../../../../core/helper/function/failure_snakbar.dart';
 import '../../../../core/helper/function/success_scaffold.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/new_app_colors.dart';
 import '../../../../core/utils/validation/app_validation.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/text_form_field_widget.dart';
-import '../logic/change_password_cubit.dart' hide Success, Loading;
+import '../logic/change_password_cubit.dart';
 
 class FormChangePasswordWidget extends StatelessWidget {
   const FormChangePasswordWidget({super.key});
@@ -56,13 +54,13 @@ class FormChangePasswordWidget extends StatelessWidget {
             ),
             BlocConsumer<ChangePasswordCubit, ChangePasswordState>(
               listener: (context, state) {
-                if (state is Success) {
+                if (state is SuccessChangePassword) {
                   successShowSnackBar(
                     context: context,
                     title: "Password changed successfully",
                   );
                 }
-                if (state is Failure) {
+                if (state is FailureChangePassword) {
                   failureSnakBar(
                     context: context,
                     title: state.errorMessage.toString(),
@@ -74,13 +72,12 @@ class FormChangePasswordWidget extends StatelessWidget {
                   onTap: () {
                     cubit.changePassword(context);
                   },
-
-                  widget: state is Loading
+                  widget: state is LoadingChangePassword
                       ? CustomProgressIndecator()
                       : Text(
                           "Change",
                           style: AppTextStyle.appbarSize22WhiteColor.copyWith(
-                            color: AppColors.white,
+                            color: NewAppColors.white,
                           ),
                         ),
                 );

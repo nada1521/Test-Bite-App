@@ -23,6 +23,8 @@ class NewAppColors {
   static const Color scaffoldBackgroundColor = Color(0xffFFFDF9);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
+    static const Color black12 = Colors.black12;
+
 }
 
 class LightThemeColors {

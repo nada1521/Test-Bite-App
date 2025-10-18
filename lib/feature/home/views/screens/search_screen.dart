@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/feature/home/views/widgets/search_list_result.dart';
-import '../../../../core/widgets/custom_appbar.dart';
 import '../../../../core/widgets/search_text_field_widget.dart';
 import '../logic/searchbyletter_cubit.dart';
 
@@ -10,10 +9,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(
-        title: "Search delicious dishes",
-        centerTitle: false,
-      ),
+      appBar: AppBar(title:Text("Search Dishes") ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -25,7 +21,6 @@ class SearchScreen extends StatelessWidget {
                 },
                 hintText: "search",
                 prefixIcon: Icons.search,
-
                 controller: context
                     .read<SearchbyletterCubit>()
                     .searchController,

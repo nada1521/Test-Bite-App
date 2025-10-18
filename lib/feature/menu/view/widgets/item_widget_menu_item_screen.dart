@@ -33,8 +33,9 @@ class ItemWidget extends StatelessWidget {
                   itemMenu.itemName,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
-                  style: AppTextStyle.fontWeightW400Size18TextSecondColor
-                      .copyWith(fontWeight: FontWeight.bold),
+                  style: AppTextStyle.fontWeightW400Size18TextDark.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

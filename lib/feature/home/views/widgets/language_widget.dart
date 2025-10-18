@@ -32,7 +32,7 @@ class LanguageWidget extends StatelessWidget {
             ),
             child: Text(
               context.locale.languageCode == 'en' ? 'English' : 'العربية',
-              style: AppTextStyle.fontWeightW400Size18TextSecondColor.copyWith(
+              style: AppTextStyle.fontWeightW400Size18TextDark.copyWith(
                 fontWeight: FontWeight.w800,
               ),
             ),

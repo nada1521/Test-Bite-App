@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/app_text_style.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'core/helper/check_states_user.dart';
 import 'core/router/app_router.dart';
 import 'core/router/app_router_path.dart';
@@ -28,11 +30,10 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
   }
 
   Future<void> check() async {
-    final isLoggedIn = await checkStatesUser.isLoagedIn();
+    final isLoggedIn = await checkStatesUser.isLoggedIn();
     setState(() {
       isLoggedInUser = isLoggedIn;
     });
-
   }
 
   @override
@@ -45,9 +46,14 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
         return MaterialApp(
           navigatorKey: TastyBiteApp.navigatorKey,
           theme: ThemeData(
-            fontFamily: AppConstants.fontName,
+            fontFamily: AppConstants.fontNameEnglish,
+            fontFamilyFallback: [AppConstants.fontNameArabic],
             scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
-            appBarTheme: AppBarTheme(backgroundColor: AppColors.appbarColor),
+            appBarTheme: AppBarTheme(
+              titleTextStyle: AppTextStyle.appbarSize22WhiteColor,
+              backgroundColor: NewAppColors.primary,
+              iconTheme: IconThemeData(color: NewAppColors.white),
+            ),
           ),
           debugShowCheckedModeBanner: false,
           locale: context.locale,
@@ -56,7 +62,7 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
           initialRoute: isLoggedInUser
               ? AppRoutes.drowerScreen
               : AppRoutes.signUpScreen,
-          // initialRoute: AppRoutes.loginScreen,
+
           onGenerateRoute: AppRouter().generatRoute,
         );
       },

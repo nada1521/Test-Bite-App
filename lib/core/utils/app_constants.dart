@@ -1,8 +1,8 @@
 
 class AppConstants {
   AppConstants._();
-  static String fontName = 'IBM Plex Sans Arabic';
+  static String fontNameArabic = 'IBM Plex Sans Arabic';
   static const String userToken = 'userToken';
-  static const String isCompleteProfile = 'isCompleteProfile';
+ static const String fontNameEnglish = 'Poppins';
   static const String userFcmToken = 'userFcmToken';
 }

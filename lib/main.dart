@@ -9,7 +9,6 @@ import 'core/utils/helper/cache_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   // await checkIfLoggedInUser();

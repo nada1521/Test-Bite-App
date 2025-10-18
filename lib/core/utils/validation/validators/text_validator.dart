@@ -1,9 +1,16 @@
-import 'package:flutter/services.dart' show FilteringTextInputFormatter, TextInputFormatter;
+import 'package:flutter/services.dart'
+    show FilteringTextInputFormatter, TextInputFormatter;
 
 abstract class TextValidator {
-  static RegExp notAllowedSpecialCharacters = RegExp(r'[!@#$%^&*_+\-,()/|\\;:]');
-  static RegExp nameRegExp = RegExp(r"^[a-zA-Z\u0621-\u064A]+(([',. -][a-zA-Z\u0621-\u064A ])?[a-zA-Z\u0621-\u064A]*)*$");
-  static RegExp fullNameRegExp = RegExp(r"^[a-zA-Z\u0621-\u064A]+(([',.\s-][a-zA-Z\u0621-\u064A ])?[a-zA-Z\u0621-\u064A]*)*$");
+  static RegExp notAllowedSpecialCharacters = RegExp(
+    r'[!@#$%^&*_+\-,()/|\\;:]',
+  );
+  static RegExp nameRegExp = RegExp(
+    r"^[a-zA-Z\u0621-\u064A]+(([',. -][a-zA-Z\u0621-\u064A ])?[a-zA-Z\u0621-\u064A]*)*$",
+  );
+  static RegExp fullNameRegExp = RegExp(
+    r"^\s*[a-zA-Z\u0621-\u064A]+(?: [a-zA-Z\u0621-\u064A]+)*\s*$",
+  );
 
   /// Deny not allowed special characters
   static List<TextInputFormatter> textFormatters = [
@@ -14,16 +21,16 @@ abstract class TextValidator {
   /// Accept only name characters
   static List<TextInputFormatter> nameFormatters = [
     // Accept only name characters
-    FilteringTextInputFormatter.allow(nameRegExp),
+    FilteringTextInputFormatter.allow(fullNameRegExp),
   ];
 
   static bool isNameValid(String? name) {
     if (name == null) return false;
-    return nameRegExp.hasMatch(name);
+    return nameRegExp.hasMatch(name.trim());
   }
 
   static bool isFullNameValid(String? name) {
     if (name == null) return false;
-    return fullNameRegExp.hasMatch(name);
+    return fullNameRegExp.hasMatch(name.trim());
   }
 }

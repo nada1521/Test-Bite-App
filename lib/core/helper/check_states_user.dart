@@ -1,18 +1,18 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CheckStatesUser {
-  Future<bool> isLoagedIn() async {
+  Future<bool> isLoggedIn() async {
     SharedPreferences shared = await SharedPreferences.getInstance();
-
-    return shared.getBool("isLoagedIn")?? false;
+    return shared.getBool("isLoggedIn") ?? false;
   }
 
-   Future<bool> login() async {
+  Future<bool> login() async {
     SharedPreferences shared = await SharedPreferences.getInstance();
+    return await shared.setBool("isLoggedIn", true);
+  }
 
-    return await shared.setBool("isLoagedIn",true);
+  Future<bool> logOut() async {
+    SharedPreferences shared = await SharedPreferences.getInstance();
+    return await shared.setBool("isLoggedIn", false);
   }
 }
-
-
-

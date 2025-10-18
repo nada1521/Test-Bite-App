@@ -1,35 +1,9 @@
-// import 'package:asmaq_thraa/core/helper/spacing.dart';
-// import 'package:asmaq_thraa/features/home/views/widgets/search_container_widget.dart';
-// import 'package:flutter/material.dart';
-// import '../widgets/best_saler_list_view.dart';
-// import '../widgets/home_appbar_widget.dart';
-// import '../widgets/services_widget.dart';
-
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({super.key,});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: HomeAppbarWidget(),
-//       body: SingleChildScrollView(
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             SearchContainerWidget(),
-//             ServicesWidget(),
-//             // BestSalerListView(),
-//             verticalSpace(90),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
-import '../../../../core/utils/app_colors.dart';
 import '../../../menu/view/screens/menue_screen.dart';
+
 import 'drower_widget.dart';
 
 class HomeAndDrawerAnimatedScreen extends StatefulWidget {
@@ -62,12 +36,12 @@ class _HomeAndDrawerAnimatedScreenState
                 ),
             clipBehavior: Clip.antiAlias, // مهم عشان الـ borderRadius يشتغل
             decoration: BoxDecoration(
-              color: Colors.white, // يغطي أي خلفية من تحت
-              borderRadius: BorderRadius.circular(isDrawerOpen ? 20 : 0),
+              color: NewAppColors.white, // يغطي أي خلفية من تحت
+              borderRadius: BorderRadius.circular(isDrawerOpen ? 20.r : 0),
               boxShadow: [
                 if (isDrawerOpen)
                   BoxShadow(
-                    color: AppColors.black12,
+                    color: NewAppColors.black12,
                     blurRadius: 10,
                     spreadRadius: 1,
                     offset: const Offset(0, 5),
@@ -82,6 +56,7 @@ class _HomeAndDrawerAnimatedScreenState
                   });
                 }
               },
+              // عشان لما اضغط ع الايكون تشتغل و الكليك توصل
               child: AbsorbPointer(
                 absorbing:
                     isDrawerOpen, // لما Drawer مفتوح يمنع الـ taps توصل للـ MenueScreen

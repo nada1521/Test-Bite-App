@@ -46,7 +46,7 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                       isDescriptionSelected = true;
                     });
                   },
-                  title: "Preparation method",
+                  title: "How to make",
                   isDescriptionSelected: isDescriptionSelected,
                 ),
               ],

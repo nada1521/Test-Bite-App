@@ -25,9 +25,7 @@ class SignupCubit extends Cubit<SignupState> {
   void emitSignupStates() async {
     if (formKey.currentState!.validate()) {
       emit(const SignupState.loading());
-
       final fcmToken = await FirebaseMessaging.instance.getToken();
-
       final result = await signupRepo.signUp(
         SignupRequestModel(
           phoneNumber: phoneController.text,
@@ -40,7 +38,6 @@ class SignupCubit extends Cubit<SignupState> {
           tokn: fcmToken,
         ),
       );
-
       result.when(
         failure: (error) {
           emit(SignupState.error(error: error.toString()));

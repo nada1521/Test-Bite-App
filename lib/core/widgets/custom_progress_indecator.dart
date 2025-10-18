@@ -12,7 +12,8 @@ class CustomProgressIndecator extends StatelessWidget {
     return Center(
       child: LoadingAnimationWidget.inkDrop(
         color: color ?? NewAppColors.white,
-        size: 35.h,
+        
+        size: 30.h,
       ),
     );
   }

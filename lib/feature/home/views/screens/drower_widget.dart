@@ -17,7 +17,7 @@ class DrowerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: NewAppColors.white,
       padding: const EdgeInsets.only(top: 50, left: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +27,9 @@ class DrowerWidget extends StatelessWidget {
               if (state is UserDataInitial) {
                 return const Text("No data");
               } else if (state is UserDataLoading) {
-                return const CustomProgressIndecator(color:NewAppColors.primary);
+                return const CustomProgressIndecator(
+                  color: NewAppColors.primary,
+                );
               } else if (state is UserDataError) {
                 return Text("Error: ${state.message}");
               } else if (state is UserDataSuccess) {
@@ -37,9 +39,12 @@ class DrowerWidget extends StatelessWidget {
                   children: [
                     UploadedImage(userEmail: user.email),
                     verticalSpace(20),
-                    Text(
-                      "${user.firstName} ${user.lastName}",
-                      style: AppTextStyle.fontSize16BoldTextPrimaryColor,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        "${user.firstName} ${user.lastName}",
+                        style: AppTextStyle.fontWeightW700Size18ColorPrimary,
+                      ),
                     ),
                   ],
                 );
@@ -49,7 +54,7 @@ class DrowerWidget extends StatelessWidget {
           ),
           SizedBox(height: 20),
           CustomListTitleWidget(
-            icon: Icons.favorite_border_outlined,
+            icon: Icons.favorite_border_outlined ,
             title: "Favorite Item",
             onTap: () {
               pushNamed(context, AppRoutes.favScreen);

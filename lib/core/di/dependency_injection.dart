@@ -12,7 +12,6 @@ import '../../feature/menu/data/service/menu_api_service.dart';
 import '../../feature/menu/view/logic/category_list/category_cubit.dart';
 import '../../feature/menu/view/logic/failter_category/failter_category_cubit.dart';
 import '../../feature/menu/view/logic/item_details/item_details_cubit.dart';
-import '../helper/maps_services.dart';
 
 final getIt = GetIt.instance;
 
@@ -35,9 +34,6 @@ Future<void> setupGetit() async {
   // Sighn Up
   getIt.registerLazySingleton<SignupRepos>(() => SignupRepos());
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<SignupRepos>()));
-  // get address
-  getIt.registerLazySingleton<MapsServices>(() => MapsServices());
-  // getIt.registerLazySingleton<GetAddressCubit>(() => GetAddressCubit(getIt()));
   // Login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo());
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
