@@ -55,13 +55,7 @@ abstract class AppTextStyle {
     color: NewAppColors.textMedium,
   );
 
-  static final fontWeightBoldSize18TextMediumColor = TextStyle(
-    fontFamily: AppConstants.fontNameEnglish,
-    fontFamilyFallback: [AppConstants.fontNameArabic],
-    fontSize: 18.sp,
-    fontWeight: FontWeight.bold,
-    color: NewAppColors.textMedium,
-  );
+ 
 
   static final fontWeightW500Size18TextSecondColor = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/feature/auth/signup/logic/user_data_cubit.dart';
-import 'package:tasty_bite/feature/search/logic/searchbyletter_cubit.dart';
+import 'package:tasty_bite/feature/search/logic/search_by_letter_cubit.dart';
 import 'package:tasty_bite/feature/search/view/screen/search_screen.dart';
 import 'package:tasty_bite/feature/settings/view/logic/change_password_cubit.dart';
 import 'package:tasty_bite/feature/settings/view/screens/change_password_screen.dart';
@@ -104,14 +104,14 @@ class AppRouter {
         );
       case AppRoutes.searchScreen:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider<SearchbyletterCubit>(
-            create: (_) => getIt<SearchbyletterCubit>(),
+          builder: (context) => BlocProvider<SearchByLetterCubit>(
+            create: (_) => getIt<SearchByLetterCubit>(),
             child: SearchScreen(),
           ),
         );
 
       case AppRoutes.drowerScreen:
-       final countryName = settings.arguments as String?;
+        final countryName = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
@@ -126,7 +126,7 @@ class AppRouter {
                 create: (context) => UserDataCubit()..loadUserData(),
               ),
             ],
-            child: HomeAndDrawerAnimatedScreen(countryName: countryName,),
+            child: HomeAndDrawerAnimatedScreen(countryName: countryName),
           ),
         );
       default:

@@ -7,10 +7,14 @@ class EmptyPlaceholderText extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        title,
-        style: AppTextStyle.fontWeightnormalSize16ColorTextDark,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Center(
+        child: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: AppTextStyle.fontWeightnormalSize16ColorTextDark,
+        ),
       ),
     );
   }

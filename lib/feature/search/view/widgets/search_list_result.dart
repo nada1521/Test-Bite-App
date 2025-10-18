@@ -1,42 +1,29 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
-import 'package:tasty_bite/feature/search/logic/searchbyletter_cubit.dart';
-import 'package:tasty_bite/feature/search/view/widgets/item_list_search.dart';
+import 'package:tasty_bite/core/widgets/empty_placeholder_text.dart';
 import '../../../../core/helper/spacing.dart';
-import '../../../../core/utils/app_text_style.dart';
+import '../../logic/search_by_letter_cubit.dart';
+import 'search_list_view.dart';
 
 class SearchListWidget extends StatelessWidget {
   const SearchListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SearchbyletterCubit, SearchbyletterState>(
+    return BlocBuilder<SearchByLetterCubit, SearchByLetterState>(
       builder: (context, state) {
         if (state is Success) {
           if (state.searchResults.isEmpty) {
             return Column(
               children: [
                 verticalSpace(190),
-                Text(
-                  "No results found 🍽️",
-                  style: AppTextStyle.fontWeightW500Size18TextSecondColor,
-                ),
+                EmptyPlaceholderText(title: "No results found 🍽️"),
               ],
             );
           } else {
-            return SizedBox(
-              height: 800.h,
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: state.searchResults.length,
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-                itemBuilder: (context, index) =>
-                    ItemListSearch(searchResult: state.searchResults[index]),
-              ),
-            );
+            return SearchListView(searchResult: state.searchResults);
           }
         } else if (state is Failure) {
           return Text(state.message);
@@ -44,13 +31,8 @@ class SearchListWidget extends StatelessWidget {
           return Column(
             children: [
               verticalSpace(200),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Text(
-                  "Start searching for your favorite dishes 🍽️",
-                  textAlign: TextAlign.center,
-                  style: AppTextStyle.fontWeightW500Size18TextSecondColor,
-                ),
+              EmptyPlaceholderText(
+                title: "Start searching for your favorite dishes 🍽️",
               ),
             ],
           );

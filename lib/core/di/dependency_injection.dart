@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:tasty_bite/feature/search/logic/searchbyletter_cubit.dart';
+import 'package:tasty_bite/feature/search/logic/search_by_letter_cubit.dart';
 import '../../feature/auth/login/data/repos/login_repo.dart';
 import '../../feature/auth/login/view/logic/login_cubit.dart';
 import '../../feature/auth/signup/data/repos/signup_repos.dart';
@@ -21,8 +21,10 @@ Future<void> setupGetit() async {
     () => MenuRepo(menuApiService: MenuApiService(dio)),
   );
   getIt.registerLazySingleton<FavoritesCubit>(() => FavoritesCubit());
- getIt.registerFactory<SearchbyletterCubit>(() => SearchbyletterCubit(getIt<MenuRepo>()));
- 
+  getIt.registerFactory<SearchByLetterCubit>(
+    () => SearchByLetterCubit(getIt<MenuRepo>()),
+  );
+
   getIt.registerFactory<CategoryCubit>(() => CategoryCubit(getIt<MenuRepo>()));
   getIt.registerFactory<FailterCategoryCubit>(
     () => FailterCategoryCubit(getIt<MenuRepo>()),

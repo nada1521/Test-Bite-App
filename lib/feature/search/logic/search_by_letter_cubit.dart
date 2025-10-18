@@ -1,14 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:tasty_bite/feature/home/data/models/filter_category_response_model.dart';
-
 import '../../../core/Networking/api_result.dart';
+import '../../home/data/models/filter_category_response_model.dart';
 import '../../home/data/repos/menu_repo.dart';
 
-part 'searchbyletter_state.dart';
+part 'search_by_letter_state.dart';
 
-class SearchbyletterCubit extends Cubit<SearchbyletterState> {
-  SearchbyletterCubit(this.menuRepo) : super(Initial());
+class SearchByLetterCubit extends Cubit<SearchByLetterState> {
+  SearchByLetterCubit(this.menuRepo) : super(Initial());
   final MenuRepo menuRepo;
   TextEditingController searchController = TextEditingController();
   List<ItemMenuModel> searchResults = [];
