@@ -9,8 +9,8 @@ abstract class AppColors {
   static const Color clickableColor = Color(0xff176721);
   static const Color textSecondColor2 = Color(0xffAE6D40);
   static const Color hintTextColor = Color(0xff9E9E9E);
-  static const Color clickableTextColor = Color(0xff37474F);
-  static const Color backgroundWhiteColor = Color(0xffF4F5F7);
+  static const Color clickableTextColor = Color(0xff030213);
+  static const Color backgroundWhiteColor = Color.fromARGB(255, 200, 220, 243);
   static const Color white = Colors.white;
   static const Color black = Colors.black;
   static const Color black12 = Colors.black12;

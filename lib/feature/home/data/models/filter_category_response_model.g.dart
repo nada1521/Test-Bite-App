@@ -6,6 +6,13 @@ part of 'filter_category_response_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+FilterCategoryResponseModel _$FilterCategoryResponseModelFromJson(
+        Map<String, dynamic> json) =>
+    FilterCategoryResponseModel(
+      meals: (json['meals'] as List<dynamic>)
+          .map((e) => ItemMenuModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$FilterCategoryResponseModelToJson(
         FilterCategoryResponseModel instance) =>

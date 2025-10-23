@@ -29,10 +29,10 @@ class SignupCubit extends Cubit<SignupState> {
       final result = await signupRepo.signUp(
         SignupRequestModel(
           phoneNumber: phoneController.text,
-          firstName: firstNameController.text,
+          firstName: firstNameController.text.toUpperCase(),
           email: emailController.text,
           password: passwordController.text,
-          lastName: lastNameController.text,
+          lastName: lastNameController.text.toUpperCase(),
           confirmPassword: confirmPasswordController.text,
           country: countryController.text,
           tokn: fcmToken,
