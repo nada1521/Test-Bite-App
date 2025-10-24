@@ -6,15 +6,15 @@ import '../utils/new_app_colors.dart';
 import 'custom_progress_indecator.dart';
 
 class CachedNetworkImageWidget extends StatelessWidget {
-  const CachedNetworkImageWidget({super.key, required this.imageUrl});
+  const CachedNetworkImageWidget({super.key, required this.imageUrl, this.hieight});
 
   final String imageUrl;
-
+  final double? hieight;
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       width: 100.w,
-      height: 85.h,
+      height:hieight??  85.h,
       imageUrl: imageUrl,
       placeholder: (context, url) => Container(
         width: 110.w,

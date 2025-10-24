@@ -21,7 +21,7 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController countryController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
- CheckStatesUser checkStatesUser = CheckStatesUser();
+  CheckStatesUser checkStatesUser = CheckStatesUser();
   void emitSignupStates() async {
     if (formKey.currentState!.validate()) {
       emit(const SignupState.loading());
@@ -29,10 +29,10 @@ class SignupCubit extends Cubit<SignupState> {
       final result = await signupRepo.signUp(
         SignupRequestModel(
           phoneNumber: phoneController.text,
-          firstName: firstNameController.text.toUpperCase(),
+          firstName: firstNameController.text,
           email: emailController.text,
           password: passwordController.text,
-          lastName: lastNameController.text.toUpperCase(),
+          lastName: lastNameController.text,
           confirmPassword: confirmPasswordController.text,
           country: countryController.text,
           tokn: fcmToken,
@@ -44,8 +44,8 @@ class SignupCubit extends Cubit<SignupState> {
         },
         success: (data) async {
           await checkStatesUser.login();
-           emit(SignupState.success());
-           },
+          emit(SignupState.success());
+        },
       );
     }
   }

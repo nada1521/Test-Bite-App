@@ -17,8 +17,11 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetit() async {
   final dio = await DioFactory.getDio();
+
+
   getIt.registerLazySingleton<MenuRepo>(
-    () => MenuRepo(menuApiService: MenuApiService(dio)),
+    () => MenuRepo(
+      menuApiService: MenuApiService(dio)),
   );
   getIt.registerLazySingleton<FavoritesCubit>(() => FavoritesCubit());
   getIt.registerFactory<SearchByLetterCubit>(

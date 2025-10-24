@@ -5,14 +5,15 @@ import '../../../../core/utils/new_app_colors.dart';
 import '../screens/image_screen.dart';
 
 class ImageWidgetModel extends StatelessWidget {
-  const ImageWidgetModel({super.key, required this.image});
+  const ImageWidgetModel({super.key, required this.image, required this.title});
   final String image;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         InkWell(
-          onTap: () => pushTo(context, ImageScreen(image: image)),
+          onTap: () => pushTo(context, ImageScreen(title: title, image: image)),
           child: Stack(
             alignment: AlignmentDirectional.topStart,
             children: [
@@ -30,7 +31,7 @@ class ImageWidgetModel extends StatelessWidget {
                       end: Alignment.bottomCenter,
                       colors: [
                         AppColors.transparent,
-                        AppColors.transparent,
+
                         NewAppColors.white.withAlpha(200),
                       ],
                     ),

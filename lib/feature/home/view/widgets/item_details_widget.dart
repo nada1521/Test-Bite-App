@@ -67,7 +67,7 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                       ),
                       verticalSpace(10),
                       RichTextWidgetString(
-                        title1: "This food is from the country ",
+                        title1: "From a Country ",
                         title2: widget.itemDetails.strArea,
                         widget: widget,
                       ),
@@ -94,6 +94,7 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                       //     style: AppTextStyle.fontWeightW600Size15,
                       //   ),
                       // ),
+                      verticalSpace(20),
                     ],
                   ),
           ],

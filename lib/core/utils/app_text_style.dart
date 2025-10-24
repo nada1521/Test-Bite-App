@@ -9,15 +9,13 @@ abstract class AppTextStyle {
   // 🔵 PRIMARY COLOR TEXT STYLES
   // ==============================
 
-
-    static final fontSize16BoldTextPrimaryColor = TextStyle(
+  static final fontSize16BoldTextPrimaryColor = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
     fontFamilyFallback: [AppConstants.fontNameArabic],
     color: NewAppColors.primary,
     fontSize: 16.sp,
     fontWeight: FontWeight.bold,
   );
-
 
   static final fontWeightW600Size17ColorTextPrimaryColor = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
@@ -26,7 +24,6 @@ abstract class AppTextStyle {
     fontSize: 17.sp,
     fontWeight: FontWeight.w600,
   );
-
 
   static final fontWeightW700Size18ColorPrimary = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
@@ -53,21 +50,20 @@ abstract class AppTextStyle {
   // ==============================
   // ⚫ SECONDARY / TEXT DARK STYLES
   // ==============================
-   static final fontWeightW400Size16HintTextColor = TextStyle(
+  static final fontWeightW400Size16HintTextColor = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
     fontFamilyFallback: [AppConstants.fontNameArabic],
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
     color: NewAppColors.textLight,
   );
-    static final fontWeightNormalSize17TextClickable = TextStyle(
+  static final fontWeightNormalSize17TextClickable = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
     fontFamilyFallback: [AppConstants.fontNameArabic],
     color: NewAppColors.textDark,
     fontSize: 17.sp,
     fontWeight: FontWeight.normal,
   );
-
 
   static final fontWeightW400Size18TextDark = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
@@ -92,7 +88,13 @@ abstract class AppTextStyle {
     fontSize: 18.sp,
     color: NewAppColors.textDark,
   );
+  static final size16ColorTextMedium = TextStyle(
+    fontFamily: AppConstants.fontNameEnglish,
+    fontFamilyFallback: [AppConstants.fontNameArabic],
 
+    fontSize: 16.sp,
+    color: NewAppColors.textMedium,
+  );
 
   static final fontWeightBoldSize18TextMedium = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
@@ -102,15 +104,14 @@ abstract class AppTextStyle {
     color: NewAppColors.textMedium,
   );
 
- 
   // ==============================
   // ⚪ WHITE / HINT COLOR STYLES
   // ==============================
-  static final fontWeightBoldSize16ButtomColorWhite = TextStyle(
+  static final fontWeightBoldSize17ButtomColorWhite = TextStyle(
     fontFamily: AppConstants.fontNameEnglish,
     fontFamilyFallback: [AppConstants.fontNameArabic],
     color: AppColors.white,
-    fontSize: 16.sp,
+    fontSize: 17.sp,
     fontWeight: FontWeight.bold,
   );
 
@@ -148,7 +149,6 @@ abstract class AppTextStyle {
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
   );
-
 
   // 🟢 GREEN COLOR STYLES
 

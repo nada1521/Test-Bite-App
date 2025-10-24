@@ -1,11 +1,15 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:tasty_bite/feature/home/data/models/category_menu_respons_model.dart';
 
+import '../../../../feature/home/data/models/filter_category_response_model.dart';
 import '../models/cached_user_model.dart';
 
 class HiveHelper {
   static const userBoxName = 'usersBox';
   static const favoriteBoxName = 'favoriteBox';
   static const shoppingCartBoxName = 'shoppingCartBox';
+  static const mealsBox = 'mealsBox';
+  static const categoryBox = 'categoryBox';
 
   HiveHelper._();
 
@@ -19,12 +23,53 @@ class HiveHelper {
     await Hive.openBox(userBoxName);
     await Hive.openBox(favoriteBoxName);
     await Hive.openBox(shoppingCartBoxName);
+    await Hive.openBox(mealsBox);
+    await Hive.openBox(categoryBox);
   }
 
   // **إدارة صندوق بيانات المستخدم**
   static Future<void> saveUserData(CachedUserModel userData) async {
     final box = Hive.box(userBoxName);
     await box.put(userBoxName, userData); // حفظ بيانات المستخدم بمفتاح ثابت
+  }
+
+  // ---------------------------------------------------
+  // 🍔 قسم: الكاش الخاص بالوجبات (Meals)
+  // ---------------------------------------------------
+  static Future<void> cacheMeals(List<ItemMenuModel> meals) async {
+    final box = HiveHelper.getBox(mealsBox);
+    await box.put('meals', meals.map((e) => e.toJson()).toList());
+  }
+
+  static Future<List<ItemMenuModel>> getCachedMeals() async {
+    final box = HiveHelper.getBox(mealsBox);
+    final cachedData = box.get('meals');
+    if (cachedData == null) return [];
+    return (cachedData as List)
+        .map((json) => ItemMenuModel.fromJson(Map<String, dynamic>.from(json)))
+        .toList();
+  }
+
+  // ---------------------------------------------------
+  // 🍔 قسم: الكاش الخاص الفآات (category)
+  // ---------------------------------------------------
+  static Future<void> cacheCategory(List<CategoryModel> categories) async {
+    final box = HiveHelper.getBox(categoryBox);
+    await box.put('categories', categories.map((e) => e.toJson()).toList());
+  }
+
+  static Future<List<CategoryModel>> getCachedCategory() async {
+    final box = HiveHelper.getBox(categoryBox);
+    final cachedData = box.get('categories');
+    if (cachedData == null) return [];
+    return (cachedData as List)
+        .map((json) => CategoryModel.fromJson(Map<String, dynamic>.from(json)))
+        .toList();
+  }
+
+  static Future<void> clearMealsCache() async {
+    final box = HiveHelper.getBox(mealsBox);
+    await box.delete('meals');
   }
 
   static CachedUserModel? getUserData() {
@@ -136,5 +181,9 @@ class HiveHelper {
   static Future<void> closeHive() async {
     await Hive.box(userBoxName).close();
     await Hive.box(favoriteBoxName).close();
+  }
+
+  static Box getBox(String boxName) {
+    return Hive.box(boxName);
   }
 }

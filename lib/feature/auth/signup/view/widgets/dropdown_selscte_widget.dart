@@ -32,6 +32,7 @@ class _DropdownSelscteWidgetState extends State<DropdownSelscteWidget> {
           fillColor: NewAppColors.white,
           border: InputBorder.none,
         ),
+
         style: AppTextStyle.fontWeightNormalSize17TextClickable,
         // ignore: deprecated_member_use
         value: selectedCountry,
@@ -50,6 +51,7 @@ class _DropdownSelscteWidgetState extends State<DropdownSelscteWidget> {
         items: countries.map((country) {
           return DropdownMenuItem(value: country, child: Text(country));
         }).toList(),
+   
         hint: Text(
           "Select country",
           style: AppTextStyle.fontWeightW400Size16HintTextColor,

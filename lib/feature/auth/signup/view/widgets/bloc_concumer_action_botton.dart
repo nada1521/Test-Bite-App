@@ -44,7 +44,7 @@ class BlocConsumerActionButton extends StatelessWidget {
               ? CustomProgressIndecator()
               : Text(
                   "Creat an account",
-                  style: AppTextStyle.fontWeightBoldSize16ButtomColorWhite,
+                  style: AppTextStyle.fontWeightBoldSize17ButtomColorWhite,
                 ),
         );
       },

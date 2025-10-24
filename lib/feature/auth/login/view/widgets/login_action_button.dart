@@ -34,7 +34,7 @@ class LoginActionButton extends StatelessWidget {
               ? CustomProgressIndecator()
               : Text(
                   "Login",
-                  style: AppTextStyle.fontWeightBoldSize16ButtomColorWhite,
+                  style: AppTextStyle.fontWeightBoldSize17ButtomColorWhite,
                 ),
         );
       },

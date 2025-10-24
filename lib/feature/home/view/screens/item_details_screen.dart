@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import '../../../../core/utils/app_text_style.dart';
+import '../../../../core/widgets/offline_widget.dart';
 import '../../data/models/filter_category_response_model.dart';
 import '../logic/item_details/item_details_cubit.dart';
 import '../logic/item_details/item_details_state.dart';
@@ -16,12 +17,12 @@ class ItemDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: BlocBuilder<ItemDetailsCubit, ItemDetailsState>(
-          builder: (context, state) {
-            if (state is ItemDetailsSuccess) {
-              final item = state.categories[0];
-              return CustomScrollView(
+      body: BlocBuilder<ItemDetailsCubit, ItemDetailsState>(
+        builder: (context, state) {
+          if (state is ItemDetailsSuccess) {
+            final item = state.categories[0];
+            return SafeArea(
+              child: CustomScrollView(
                 slivers: [
                   SliverAppBar(
                     expandedHeight: MediaQuery.of(context).size.height * 0.5,
@@ -30,6 +31,7 @@ class ItemDetailsScreen extends StatelessWidget {
                     leading: Container(
                       margin: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
                         color: Colors.black.withOpacity(0.4),
                         shape: BoxShape.circle,
                       ),
@@ -63,6 +65,7 @@ class ItemDetailsScreen extends StatelessWidget {
                                       .fontWeightW700Size18ColorPrimary, // لما يكون موسّع
                           ),
                           background: ImageWidgetModel(
+                            title: item.strMeal,
                             image: item.strMealThumb,
                           ),
                         );
@@ -72,13 +75,16 @@ class ItemDetailsScreen extends StatelessWidget {
 
                   ItemDetailsWidget(itemDetails: item),
                 ],
-              );
-            } else if (state is ItemDetailsFailure) {
-              return Center(child: Text(state.error));
-            }
-            return const CustomProgressIndecator(color: NewAppColors.primary,);
-          },
-        ),
+              ),
+            );
+          } else if (state is ItemDetailsFailure) {
+            return Scaffold(
+              appBar: AppBar(title: Text("Item Details")),
+              body: OfflineWidget(),
+            );
+          }
+          return const CustomProgressIndecator(color: NewAppColors.primary);
+        },
       ),
     );
   }

@@ -54,6 +54,7 @@ class _UploadedImageState extends State<UploadedImage> {
                   final image = await picker.pickImage(
                     source: ImageSource.gallery,
                   );
+                  // ignore: use_build_context_synchronously
                   Navigator.pop(context, image);
                 },
               ),
@@ -67,6 +68,7 @@ class _UploadedImageState extends State<UploadedImage> {
                   final image = await picker.pickImage(
                     source: ImageSource.camera,
                   );
+                  // ignore: use_build_context_synchronously
                   Navigator.pop(context, image);
                 },
               ),
