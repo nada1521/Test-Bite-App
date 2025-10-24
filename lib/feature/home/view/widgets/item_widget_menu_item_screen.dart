@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
+import 'package:tasty_bite/core/widgets/cached_network_image_widget.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/router/app_router_path.dart';
 import '../../../../core/utils/app_text_style.dart';
@@ -33,9 +34,7 @@ class ItemWidget extends StatelessWidget {
                   itemMenu.itemName,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
-                  style: AppTextStyle.fontWeightW400Size18TextDark.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyle.fontWeightW500Size18TextSecondColor,
                 ),
               ),
             ),
@@ -44,10 +43,9 @@ class ItemWidget extends StatelessWidget {
                 topEnd: Radius.circular(12.r),
                 bottomEnd: Radius.circular(12.r),
               ),
-              child: Image.network(
-                itemMenu.itemImage,
-                width: 100.w,
-                fit: BoxFit.cover,
+              child: CachedNetworkImageWidget(
+                imageUrl: itemMenu.itemImage,
+                hieight: 100.h,
               ),
             ),
           ],

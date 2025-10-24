@@ -19,11 +19,13 @@ class RichTextWidgetString extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: title1,
-        style: AppTextStyle.fontWeightnormalSize16ColorTextDark,
+        style: AppTextStyle.size16ColorTextMedium,
         children: [
           TextSpan(
             text: title2,
-            style: AppTextStyle.fontWeightW700Size18ColorPrimary,
+            style: AppTextStyle.fontWeightW700Size18ColorPrimary.copyWith(
+              fontSize: 17,
+            ),
           ),
         ],
       ),

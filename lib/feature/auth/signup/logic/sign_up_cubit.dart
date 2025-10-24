@@ -21,7 +21,7 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController countryController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
- CheckStatesUser checkStatesUser = CheckStatesUser();
+  CheckStatesUser checkStatesUser = CheckStatesUser();
   void emitSignupStates() async {
     if (formKey.currentState!.validate()) {
       emit(const SignupState.loading());
@@ -44,8 +44,8 @@ class SignupCubit extends Cubit<SignupState> {
         },
         success: (data) async {
           await checkStatesUser.login();
-           emit(SignupState.success());
-           },
+          emit(SignupState.success());
+        },
       );
     }
   }

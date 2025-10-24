@@ -1,4 +1,3 @@
-
 final List<String> countries = [
   "American",
   "British",
@@ -28,5 +27,4 @@ final List<String> countries = [
   "Turkish",
   "Ukrainian",
   "Uruguayan",
-  "Vietnamese",
-];
+  "Vietnamese",];

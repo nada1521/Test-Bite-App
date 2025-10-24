@@ -50,6 +50,7 @@ List<CustomListTitleWidget> getSettingsOption(BuildContext context) {
       onTap: () async {
         await FirebaseAuth.instance.signOut();
         await checkStatesUser.logOut();
+        // ignore: use_build_context_synchronously
         pushReplacementNamed(context, AppRoutes.loginScreen);
       },
     ),

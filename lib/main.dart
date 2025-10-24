@@ -12,9 +12,12 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   // await checkIfLoggedInUser();
+    await HiveHelper.initHive();
   await setupGetit();
-  // await SupabaseDatabase().initSupabase();
-  await HiveHelper.initHive();
+  // await SupabaseDatabase().init
+  // Supabase();
+
+  
   await CacheHelper.init();
   AppRouter appRouter = AppRouter();
   

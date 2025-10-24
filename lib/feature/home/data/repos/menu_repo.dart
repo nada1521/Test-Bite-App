@@ -1,3 +1,5 @@
+import 'package:tasty_bite/core/Networking/local_database/helper/hive_helper.dart';
+import 'package:tasty_bite/core/helper/internet_conection.dart';
 import '../../../../core/Networking/api_result.dart';
 import '../../../../core/helper/error/failure.dart';
 import '../models/category_menu_respons_model.dart';
@@ -12,9 +14,17 @@ class MenuRepo {
 
   Future<ApiResult<CategoryMenuResponsModel>> getCategoryList() async {
     try {
-      final data = await menuApiService.getCategoryList();
-      return ApiResult.success(data);
+     
+        final data = await menuApiService.getCategoryList();
+        await HiveHelper.cacheCategory(data.categories);
+        return ApiResult.success(data);
+          
     } catch (error) {
+      final cached = await HiveHelper.getCachedCategory();
+      if(cached.isNotEmpty){
+         return ApiResult.success(CategoryMenuResponsModel(categories: cached));
+      }
+      
       return ApiResult.failure(FailureServer(error.toString()));
     }
   }
@@ -24,6 +34,7 @@ class MenuRepo {
   }) async {
     try {
       final data = await menuApiService.getAllCategory(categoryName);
+
       return ApiResult.success(data);
     } catch (error) {
       return ApiResult.failure(FailureServer(error.toString()));
@@ -34,8 +45,12 @@ class MenuRepo {
     required String itemId,
   }) async {
     try {
-      final data = await menuApiService.getItemDetails(itemId);
-      return ApiResult.success(data);
+      if (await NetworkInfo.isConnected()) {
+        final data = await menuApiService.getItemDetails(itemId);
+        return ApiResult.success(data);
+      } else {
+        return ApiResult.failure(FailureServer('No internet connection'));
+      }
     } catch (error) {
       return ApiResult.failure(FailureServer(error.toString()));
     }
@@ -46,8 +61,16 @@ class MenuRepo {
   }) async {
     try {
       final data = await menuApiService.getItemByCountry(country);
+      await HiveHelper.cacheMeals(data.meals);
+
       return ApiResult.success(data);
     } catch (error) {
+      final cachedMeals = await HiveHelper.getCachedMeals();
+      if (cachedMeals.isNotEmpty) {
+        return ApiResult.success(
+          FilterCategoryResponseModel(meals: cachedMeals),
+        );
+      }
       return ApiResult.failure(FailureServer(error.toString()));
     }
   }
@@ -56,8 +79,7 @@ class MenuRepo {
     required String firstLetter,
   }) async {
     try {
-     
-      final response =await menuApiService.searchForFirstLetter(firstLetter);
+      final response = await menuApiService.searchForFirstLetter(firstLetter);
 
       return ApiResult.success(response);
     } catch (error) {

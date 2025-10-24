@@ -28,8 +28,10 @@ class _HomeAndDrawerAnimatedScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [const DrowerWidget(), _buildAnimatedMainContent()],
+      body: SafeArea(
+        child: Stack(
+          children: [const DrowerWidget(), _buildAnimatedMainContent()],
+        ),
       ),
     );
   }

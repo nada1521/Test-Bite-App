@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tasty_bite/core/utils/new_app_colors.dart';
-
 import '../../../../../core/utils/validation/app_validation.dart';
 import '../../../../../core/widgets/text_form_field_widget.dart';
 import '../../logic/sign_up_cubit.dart';
@@ -26,7 +24,6 @@ class RowNameWidget extends StatelessWidget {
           width: 1.w,
           height: 50.h,
           decoration: BoxDecoration(
-            color: NewAppColors.textLight.withAlpha(100),
             borderRadius: BorderRadius.circular(20.r),
           ),
           margin: const EdgeInsets.symmetric(horizontal: 5),

@@ -17,7 +17,7 @@ class HaveAccountWidget extends StatelessWidget {
           children: [
             TextSpan(
               text: "Do you have an account? ",
-              style: AppTextStyle.fontWeightnormalSize16ColorTextDark,
+              style: AppTextStyle.size16ColorTextMedium,
             ),
             TextSpan(
               text: "Login",

@@ -12,5 +12,4 @@ Map<String, dynamic> _$UserLoginRequestBodyToJson(
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
-
     };

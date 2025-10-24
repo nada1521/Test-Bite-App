@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10.h),
         width: width ?? double.infinity,
-        height: height ?? 55.h,
+        height: height ?? 52.h,
         decoration: BoxDecoration(
           color: NewAppColors.primary,
           borderRadius: BorderRadius.circular(18.r),
@@ -39,7 +39,7 @@ class CustomButton extends StatelessWidget {
               widget ??
               Text(
                 title ?? "",
-                style: AppTextStyle.fontWeightBoldSize16ButtomColorWhite,
+                style: AppTextStyle.fontWeightBoldSize17ButtomColorWhite,
               ),
         ),
       ),
