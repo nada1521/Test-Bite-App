@@ -8,14 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tasty_bite/core/router/app_router.dart';
-import 'package:tasty_bite/tasty_bite_app.dart';
+import 'package:tasty_bite/come_eat_app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( TastyBiteApp(
-    
-      appRouter: AppRouter(),));
+    await tester.pumpWidget(ComeEatApp(appRouter: AppRouter()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

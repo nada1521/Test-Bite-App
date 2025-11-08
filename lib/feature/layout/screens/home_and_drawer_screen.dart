@@ -18,6 +18,7 @@ class HomeAndDrawerAnimatedScreen extends StatefulWidget {
 class _HomeAndDrawerAnimatedScreenState
     extends State<HomeAndDrawerAnimatedScreen> {
   bool _isDrawerOpen = false;
+  bool get isArabic => Localizations.localeOf(context).languageCode == 'ar';
 
   void _toggleDrawer([bool? open]) {
     setState(() {
@@ -60,14 +61,20 @@ class _HomeAndDrawerAnimatedScreenState
   }
 
   ///  جدول تحويل الانيميشن
-  Matrix4 get _drawerTransformMatrix =>
-      Matrix4.translationValues(
-        _isDrawerOpen ? 200 : 0,
-        _isDrawerOpen ? 70 : 0,
-        0,
-      )..scaleByVector3(
-        Vector3(_isDrawerOpen ? 0.8 : 1, _isDrawerOpen ? 0.8 : 1, 1),
-      );
+  Matrix4 get _drawerTransformMatrix {
+    final double dx;
+    if (_isDrawerOpen) {
+      dx = isArabic ? -140.0.w : 200.0.w; // فرق المسافة بين اللغتين
+    } else {
+      dx = 0.0;
+    }
+
+    final dy = _isDrawerOpen ? 100.0 : 0.0;
+
+    return Matrix4.translationValues(dx, dy, 0)..scaleByVector3(
+      Vector3(_isDrawerOpen ? 0.8 : 1, _isDrawerOpen ? 0.8 : 1, 1),
+    );
+  }
 
   /// الانيميشن هيتحرك ازى
   BoxDecoration get _mainContentDecoration => BoxDecoration(

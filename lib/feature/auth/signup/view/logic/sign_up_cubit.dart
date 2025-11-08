@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:tasty_bite/core/Networking/api_result.dart';
-import '../../../../core/helper/check_states_user.dart';
-import '../data/models/signup_request.dart';
-import '../data/repos/signup_repos.dart';
+import '../../../../../core/helper/check_states_user.dart';
+import '../../data/models/signup_request.dart';
+import '../../data/repos/signup_repos.dart';
 import 'sign_up_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {

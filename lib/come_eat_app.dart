@@ -6,16 +6,16 @@ import 'core/helper/check_states_user.dart';
 import 'core/router/app_router.dart';
 import 'core/router/app_router_path.dart';
 
-class TastyBiteApp extends StatefulWidget {
-  const TastyBiteApp({super.key, required this.appRouter});
+class ComeEatApp extends StatefulWidget {
+  const ComeEatApp({super.key, required this.appRouter});
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
   final AppRouter appRouter;
   @override
-  State<TastyBiteApp> createState() => _TastyBiteAppState();
+  State<ComeEatApp> createState() => _ComeEatAppState();
 }
 
-class _TastyBiteAppState extends State<TastyBiteApp> {
+class _ComeEatAppState extends State<ComeEatApp> {
   final checkStatesUser = CheckStatesUser();
   bool isLoggedInUser = false;
 
@@ -41,7 +41,7 @@ class _TastyBiteAppState extends State<TastyBiteApp> {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          navigatorKey: TastyBiteApp.navigatorKey,
+          navigatorKey: ComeEatApp.navigatorKey,
           theme: AppLightTheme.lightTheme,
           debugShowCheckedModeBanner: false,
           locale: context.locale,

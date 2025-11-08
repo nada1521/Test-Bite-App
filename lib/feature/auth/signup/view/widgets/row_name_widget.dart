@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import '../../../../../core/utils/validation/app_validation.dart';
 import '../../../../../core/widgets/text_form_field_widget.dart';
-import '../../logic/sign_up_cubit.dart';
+import '../logic/sign_up_cubit.dart';
 
 class RowNameWidget extends StatelessWidget {
   const RowNameWidget({super.key, required this.cubit});
@@ -14,7 +16,7 @@ class RowNameWidget extends StatelessWidget {
         Expanded(
           child: AppTextFormField(
             controller: cubit.firstNameController,
-            hintText: "First name",
+            hintText: LocaleKeys.auth_label_first_name.tr(),
             validator: (value) => AppValidation.nameValidation(value),
             prefixIcon: Icons.person,
             keyboardType: TextInputType.name,
@@ -31,7 +33,7 @@ class RowNameWidget extends StatelessWidget {
         Expanded(
           child: AppTextFormField(
             controller: cubit.lastNameController,
-            hintText: "Last name",
+            hintText: LocaleKeys.auth_label_last_name.tr(),
             validator: (value) => AppValidation.fullNameValidation(value),
             prefixIcon: Icons.person,
             keyboardType: TextInputType.name,

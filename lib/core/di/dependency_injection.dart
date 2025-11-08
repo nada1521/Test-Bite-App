@@ -5,7 +5,7 @@ import 'package:tasty_bite/feature/search/logic/search_by_letter_cubit.dart';
 import '../../feature/auth/login/data/repos/login_repo.dart';
 import '../../feature/auth/login/view/logic/login_cubit.dart';
 import '../../feature/auth/signup/data/repos/signup_repos.dart';
-import '../../feature/auth/signup/logic/sign_up_cubit.dart';
+import '../../feature/auth/signup/view/logic/sign_up_cubit.dart';
 import '../../feature/favorit/view/cubit/favorit_cubit.dart';
 import '../../feature/home/data/repos/menu_repo.dart';
 import '../../feature/home/data/service/menu_api_service.dart';
@@ -18,54 +18,43 @@ final getIt = GetIt.instance;
 Future<void> setupGetit() async {
   final dio = await DioFactory.getDio();
 
+  getIt.registerLazySingleton<Dio>(() => dio);
 
-  getIt.registerLazySingleton<MenuRepo>(
-    () => MenuRepo(
-      menuApiService: MenuApiService(dio)),
-  );
-  getIt.registerLazySingleton<FavoritesCubit>(() => FavoritesCubit());
-  getIt.registerFactory<SearchByLetterCubit>(
-    () => SearchByLetterCubit(getIt<MenuRepo>()),
+  getIt.registerLazySingleton<MenuApiService>(
+    () => MenuApiService(getIt<Dio>()),
   );
 
-  getIt.registerFactory<CategoryCubit>(() => CategoryCubit(getIt<MenuRepo>()));
-  getIt.registerFactory<FailterCategoryCubit>(
-    () => FailterCategoryCubit(getIt<MenuRepo>()),
-  );
-  getIt.registerFactory<ItemDetailsCubit>(
-    () => ItemDetailsCubit(getIt<MenuRepo>()),
-  );
-  // getIt.registerLazySingleton<SupabaseAuthService>(() => SupabaseAuthService());
   // Sighn Up
   getIt.registerLazySingleton<SignupRepos>(() => SignupRepos());
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt<SignupRepos>()));
   // Login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo());
-  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
-  // Adding Product
-  // Bottom NavBar Navigator
-  // getIt.registerFactory<BottomNavBarNavigatorCubit>(
-  //   () => BottomNavBarNavigatorCubit(),
-  // );
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()));
 
-  // _______________
-  //___________________
-  // Admin Version
-  // __________________________________
-  // Get All Users And Send Notifcations
+  //  Repos
+  getIt.registerLazySingleton<MenuRepo>(
+    () => MenuRepo(menuApiService: getIt<MenuApiService>()),
+  ); 
 
-  // Search For Products
-  // getIt.registerLazySingleton<SearchForProductsCubit>(() => GetAllOrdersRepo());
-  // getIt.registerFactory<SearchForProductsCubit>(() => SearchForProductsCubit(getIt()));
-  // getIt.registerFactory<SearchForUserCubit>(() => SearchForUserCubit(getIt()));
-
-  // getIt.registerFactory<SearchForOrdersCubit>(() => SearchForOrdersCubit(getIt()));
-  // getIt.registerLazySingleton<SearchForOrdersRepo>(() => SearchForOrdersRepo());
+  // favorit cubit
+  getIt.registerLazySingleton<FavoritesCubit>(() => FavoritesCubit());
+  // search cubit
+  getIt.registerFactory<SearchByLetterCubit>(
+    () => SearchByLetterCubit(getIt<MenuRepo>()),
+  );
+  // all category cubit
+  getIt.registerFactory<CategoryCubit>(() => CategoryCubit(getIt<MenuRepo>()));
+  // cuntry cubit
+  getIt.registerFactory<FailterCategoryCubit>(
+    () => FailterCategoryCubit(getIt<MenuRepo>()),
+  );
+  // Item details
+  getIt.registerFactory<ItemDetailsCubit>(
+    () => ItemDetailsCubit(getIt<MenuRepo>()),
+  );
 }
 
 class DioFactory {
-  // Singleton Instance
-  // static final DioFactory _instance = DioFactory._internal();
   DioFactory._();
 
   static Dio? _dio;

@@ -10,7 +10,7 @@ List<AppTextFormField> loginFormList(LoginCubit cubit) {
     AppTextFormField(
       keyboardType: TextInputType.emailAddress,
       controller: cubit.emailController,
-      hintText: "Email",
+      hintText: LocaleKeys.auth_label_email.tr(),
       prefixIcon: Icons.email,
       validator: (email) => AppValidation.emailValidation(email),
     ),

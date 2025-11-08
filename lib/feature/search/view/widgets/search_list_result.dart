@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import 'package:tasty_bite/core/widgets/empty_placeholder_text.dart';
@@ -19,7 +21,7 @@ class SearchListWidget extends StatelessWidget {
             return Column(
               children: [
                 verticalSpace(190),
-                EmptyPlaceholderText(title: "No results found 🍽️"),
+                EmptyPlaceholderText(title:LocaleKeys.search_screen_no_results.tr()),
               ],
             );
           } else {
@@ -32,7 +34,7 @@ class SearchListWidget extends StatelessWidget {
             children: [
               verticalSpace(200),
               EmptyPlaceholderText(
-                title: "Start searching for your favorite dishes 🍽️",
+                title: LocaleKeys.search_screen_start_searching.tr(),
               ),
             ],
           );

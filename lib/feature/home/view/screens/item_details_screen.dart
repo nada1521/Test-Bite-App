@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import '../../../../core/utils/app_text_style.dart';
@@ -51,8 +53,8 @@ class ItemDetailsScreen extends StatelessWidget {
                             constraints.maxHeight <= kToolbarHeight + 50;
 
                         return FlexibleSpaceBar(
-                          titlePadding: const EdgeInsets.only(
-                            left: 50,
+                          titlePadding: const EdgeInsetsDirectional.only(
+                            start: 50,
                             bottom: 15,
                           ),
                           centerTitle: false,
@@ -79,7 +81,9 @@ class ItemDetailsScreen extends StatelessWidget {
             );
           } else if (state is ItemDetailsFailure) {
             return Scaffold(
-              appBar: AppBar(title: Text("Item Details")),
+              appBar: AppBar(
+                title: Text(LocaleKeys.home_screen_item_details.tr()),
+              ),
               body: OfflineWidget(),
             );
           }

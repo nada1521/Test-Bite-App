@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tasty_bite/feature/auth/signup/logic/user_data_cubit.dart';
+import 'package:tasty_bite/feature/auth/signup/view/logic/user_data_cubit.dart';
 import 'package:tasty_bite/feature/search/logic/search_by_letter_cubit.dart';
 import 'package:tasty_bite/feature/search/view/screen/search_screen.dart';
 import 'package:tasty_bite/feature/settings/view/logic/change_password_cubit.dart';
@@ -8,7 +8,7 @@ import 'package:tasty_bite/feature/settings/view/screens/change_password_screen.
 import 'package:tasty_bite/feature/settings/view/screens/setings_screen.dart';
 import '../../feature/auth/login/view/logic/login_cubit.dart';
 import '../../feature/auth/login/view/screen/login_screen.dart';
-import '../../feature/auth/signup/logic/sign_up_cubit.dart';
+import '../../feature/auth/signup/view/logic/sign_up_cubit.dart';
 import '../../feature/auth/signup/view/screen/signup_screen.dart';
 import '../../feature/favorit/view/cubit/favorit_cubit.dart';
 import '../../feature/favorit/view/screen/favorit_screen.dart';

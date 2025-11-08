@@ -1,11 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import 'package:tasty_bite/feature/auth/signup/view/widgets/row_name_widget.dart';
 import '../../../../../core/constants/signup_form_list.dart';
 import '../../../../../core/helper/spacing.dart';
 import '../../../../../core/utils/app_text_style.dart';
-import '../../logic/sign_up_cubit.dart';
+import '../logic/sign_up_cubit.dart';
 import 'bloc_concumer_action_botton.dart';
 import 'dropdown_selscte_widget.dart';
 import 'have_account.dart';
@@ -26,13 +28,13 @@ class SignupFormWidget extends StatelessWidget {
           children: [
             verticalSpace(5),
             Text(
-              "Create Account",
+             LocaleKeys.auth_label_create_an_account.tr(),
               style: AppTextStyle.fontSize32BoldTextPrimaryColor.copyWith(
                 fontSize: 30.sp,
               ),
             ),
             Text(
-              "Create your account and explore recipes from around the world ",
+             LocaleKeys.signup_screen_creat_an_accunt.tr(),
               style: AppTextStyle.fontWeightW400Size18TextDark,
             ),
             verticalSpace(10),

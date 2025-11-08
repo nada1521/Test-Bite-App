@@ -19,7 +19,7 @@ class CategoryHorizontalList extends StatelessWidget {
       builder: (context, state) {
         if (state is CategorySuccess) {
           return SizedBox(
-            height: 140.h,
+            height: 130.h,
             child: ListView.builder(
               padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
