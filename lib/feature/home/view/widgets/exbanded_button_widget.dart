@@ -14,7 +14,7 @@ class ExpandedButtonWidget extends StatelessWidget {
   });
   final String title;
   final bool isDescriptionSelected;
-  final BorderRadius? borderRadius;
+  final BorderRadiusDirectional? borderRadius;
   final Function() onPressed;
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class ExpandedButtonWidget extends StatelessWidget {
               : NewAppColors.disabled,
           borderRadius:
               borderRadius ??
-              const BorderRadius.only(
-                topRight: Radius.circular(12),
-                bottomRight: Radius.circular(12),
+              const BorderRadiusDirectional.only(
+                topEnd: Radius.circular(12),
+                bottomEnd: Radius.circular(12),
               ),
         ),
         child: TextButton(

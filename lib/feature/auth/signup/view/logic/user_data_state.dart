@@ -1,4 +1,4 @@
-import '../data/models/signup_request.dart';
+import '../../data/models/signup_request.dart';
 
 abstract class UserDataState {}
 

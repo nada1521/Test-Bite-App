@@ -2,6 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tasty_bite/feature/home/data/models/category_menu_respons_model.dart';
 
 import '../../../../feature/home/data/models/filter_category_response_model.dart';
+import '../../../../feature/home/data/models/item_details_response_model.dart';
 import '../models/cached_user_model.dart';
 
 class HiveHelper {
@@ -10,6 +11,7 @@ class HiveHelper {
   static const shoppingCartBoxName = 'shoppingCartBox';
   static const mealsBox = 'mealsBox';
   static const categoryBox = 'categoryBox';
+  static const favoritBox='favoritBox';
 
   HiveHelper._();
 
@@ -25,6 +27,8 @@ class HiveHelper {
     await Hive.openBox(shoppingCartBoxName);
     await Hive.openBox(mealsBox);
     await Hive.openBox(categoryBox);
+    await Hive.openBox(favoritBox);
+
   }
 
   // **إدارة صندوق بيانات المستخدم**
@@ -71,7 +75,27 @@ class HiveHelper {
     final box = HiveHelper.getBox(mealsBox);
     await box.delete('meals');
   }
+  // ---------------------------------------------------
+  // 🍔 قسم: الكاش الخاص الفيفوريت (Favorit)
+  // ---------------------------------------------------
+  static Future<void> cacheFavoriteMeal(List<ItemDetailsModel> favorites) async {
+    final box = HiveHelper.getBox(favoritBox);
+    await box.put('favorit', favorites.map((e) => e.toJson()).toList());
+  }
 
+  static Future<List<ItemDetailsModel>> getCachedFavoriteMeal() async {
+    final box = HiveHelper.getBox(favoritBox);
+    final cachedData = box.get('favorit');
+    if (cachedData == null) return [];
+    return (cachedData as List)
+        .map((json) => ItemDetailsModel.fromJson(Map<String, dynamic>.from(json)))
+        .toList();
+  }
+
+  // static Future<void> clearMealsCache() async {
+  //   final box = HiveHelper.getBox(mealsBox);
+  //   await box.delete('meals');
+  // }
   static CachedUserModel? getUserData() {
     final box = Hive.box(userBoxName);
     return box.get(userBoxName); // استرجاع بيانات المستخدم

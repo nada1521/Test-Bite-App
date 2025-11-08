@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import '../../../../core/helper/spacing.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../data/models/item_details_response_model.dart';
@@ -33,11 +35,11 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                       isDescriptionSelected = false;
                     });
                   },
-                  title: "Overview",
+                  title: LocaleKeys.home_screen_over_view.tr(),
                   isDescriptionSelected: !isDescriptionSelected,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    bottomLeft: Radius.circular(12),
+                  borderRadius: BorderRadiusDirectional.only(
+                    topStart: Radius.circular(12),
+                    bottomStart: Radius.circular(12),
                   ),
                 ),
                 ExpandedButtonWidget(
@@ -46,7 +48,7 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                       isDescriptionSelected = true;
                     });
                   },
-                  title: "How to make",
+                  title: LocaleKeys.home_screen_how_to_make.tr(),
                   isDescriptionSelected: isDescriptionSelected,
                 ),
               ],
@@ -62,18 +64,21 @@ class _ItemDetailsWidgetState extends State<ItemDetailsWidget> {
                     children: [
                       RichTextWidgetString(
                         widget: widget,
-                        title1: "This dish belongs to: ",
+                        title1: LocaleKeys.home_screen_this_dish_belongs_to
+                            .tr(),
                         title2: widget.itemDetails.strCategory,
                       ),
                       verticalSpace(10),
                       RichTextWidgetString(
-                        title1: "From a Country ",
+                        title1: LocaleKeys.home_screen_from_country.tr(),
                         title2: widget.itemDetails.strArea,
                         widget: widget,
                       ),
                       verticalSpace(10),
                       VideoWidget(
-                        videoUrl: widget.itemDetails.strYoutube ?? "No link !",
+                        videoUrl:
+                            widget.itemDetails.strYoutube ??
+                            LocaleKeys.home_screen_no_link.tr(),
                       ),
                       AddToFavoritScreen(itemMenuModel: widget.itemDetails),
                       // TextButton.icon(

@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/helper/function/failure_snakbar.dart';
 import 'package:tasty_bite/core/helper/navigation/push_to.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import '../../../../../core/router/app_router_path.dart';
 import '../../../../../core/utils/app_text_style.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -33,7 +35,7 @@ class LoginActionButton extends StatelessWidget {
           widget: state is Loading
               ? CustomProgressIndecator()
               : Text(
-                  "Login",
+                  LocaleKeys.auth_label_login.tr(),
                   style: AppTextStyle.fontWeightBoldSize17ButtomColorWhite,
                 ),
         );

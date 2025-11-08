@@ -1,0 +1,59 @@
+
+
+
+Network Layer: استخدمتي Dio + Retrofit + PrettyDioLogger لتنظيم واستدعاء الـ APIs بطريقة منظمة وسهلة الاختبار.
+
+Offline Storage: استخدمتي Hive وHive Flutter لتخزين البيانات محليًا.
+
+Firebase:
+
+firebase_auth لتسجيل الدخول.
+
+cloud_firestore وfirebase_database لإدارة البيانات.
+
+firebase_messaging للإشعارات.
+
+Localization: من خلال easy_localization لتعدد اللغات + تعريب اسم التطبيق.
+
+UI & UX:
+
+استخدمتي flutter_screenutil لتصميم واجهة متجاوبة مع كل الشاشات.
+
+أضفتي Splash Screen باستخدام flutter_native_splash.
+
+وأضفتي App Icon باستخدام flutter_launcher_icons.
+
+استخدمتي Custom Fonts (IBM Plex Sans Arabic + Poppins) لتحسين شكل النصوص.
+
+استخدمتي loading_animation_widget لتحسين تجربة التحميل.
+
+Image Optimization: cached_network_image لتقليل استهلاك الإنترنت.
+
+Video Integration: youtube_player_flutter لعرض فيديوهات الوصفات مباشرة داخل التطبيق.
+
+Location Features: عندك geolocator وgeocoding (ممكن تكون ناوية تضيفي خاصية تحديد موقع الدولة أو المستخدم لاحقًا).
+
+Storage & Security: flutter_secure_storage وshared_preferences لحفظ البيانات الحساسة والتوكنات.
+
+UI Enhancements: timelines_plus لإضافة مخططات أو خطوات (timeline).
+
+Toast & Alerts: fluttertoast لعرض رسائل سريعة في التطبيق.
+
+Animations: عبر مكتبة loading_animation_widget.
+"عالم الطبخ" Cook World خلصت اول نسخة من تطبيقى الأول 
+ . جديدة أو التطوير سهلة بعدين Feature فكرة التطبيق إنه يعرض وصفات من 29 دوله مختلفة بطريقة بسيطة تقدر تشوف الفيديو بتاع الوصفة او تقراء الخطوات ، مع تنظيم في الكود يخلي إضافة 
+ من ضمنهم package استخدمت كذا 
+State Management: cubit
+Dependency Injection: استخدمتي get_it لتنظيم الكود والفصل بين الطبقات.
+Network Layer: استخدمتي Dio + Retrofit + PrettyDioLogger لتنظيم واستدعاء الـ APIs بطريقة منظمة وسهلة الاختبار.
+YouTube_player_flutter:    بيرجع روابط يوتيوب للفيديوهات، دمجت مشغل الفيديو داخل التطبيق بدل ما يفتح على اليوتيوب API لأن الـ    
+flutter_native_splash: Splash Screen لل                             
+flutter_screenutil: . على كل أحجام الشاشات  responsive علشان التطبيق يكون 
+Hive Database : لتخزين بيانات الصفحة الرئيسية محليًا، بحيث يقدر المستخدم يتصفح آخر الوصفات حتى لو الإنترنت فصل. 
+cached_network_image : لتقليل استهلاك الإنترنت وتحسين سرعة عرض الصور.
+shared_preferences : لتخزين بيانات بسيطة زي الـ token أو حالة تسجيل الدخول.
+flutter_launcher_icons:  app icon عشان اغير ال 
+connectivity_plus : لاكتشاف حالة الاتصال بالإنترنت والتعامل مع الوضع الـ offline. 
+
+بحيث يظهر بالإنجليزي أو العربي حسب لغة الجهاز app name ال localization و ظبطت 
+     

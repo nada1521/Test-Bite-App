@@ -1,5 +1,7 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import '../../../../core/helper/get_user_data.dart';
 import '../../../../core/utils/new_app_colors.dart';
 
@@ -26,7 +28,7 @@ class _CustomHomeAppbarState extends State<CustomHomeAppbar> {
     final name = await GetUserData.getUserName();
     if (mounted) {
       setState(() {
-        userName = name ?? "Guest";
+        userName = name ?? LocaleKeys.auth_label_guest.tr();
       });
     }
   }
@@ -34,7 +36,7 @@ class _CustomHomeAppbarState extends State<CustomHomeAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text("Hello, $userName"),
+      title: Text("${LocaleKeys.common_title_hello.tr()} $userName"),
       actions: [
         IconButton(
           onPressed: widget.onPressed,

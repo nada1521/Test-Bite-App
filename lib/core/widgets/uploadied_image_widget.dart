@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../utils/app_text_style.dart';
 
@@ -47,7 +49,7 @@ class _UploadedImageState extends State<UploadedImage> {
               ListTile(
                 leading: const Icon(Icons.photo_library),
                 title: Text(
-                  "Selection from the gallery",
+                  LocaleKeys.setting_selection_from_the_gallery.tr(),
                   style: AppTextStyle.fontWeightW400Size18TextDark,
                 ),
                 onTap: () async {
@@ -61,7 +63,7 @@ class _UploadedImageState extends State<UploadedImage> {
               ListTile(
                 leading: Icon(Icons.camera_alt),
                 title: Text(
-                  "Use the camera",
+                  LocaleKeys.setting_use_the_camera.tr(),
                   style: AppTextStyle.fontWeightW400Size18TextDark,
                 ),
                 onTap: () async {
@@ -75,7 +77,7 @@ class _UploadedImageState extends State<UploadedImage> {
               if (_pickedImage != null)
                 ListTile(
                   leading: const Icon(Icons.image),
-                  title: const Text("View current image"),
+                  title: Text(LocaleKeys.setting_view_current_image.tr()),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(
@@ -157,7 +159,7 @@ class _ImageScreenState extends State<ImageScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile Image",
+          LocaleKeys.setting_profile_image.tr(),
           style: AppTextStyle.appbarSize22WhiteColor,
         ),
       ),
@@ -169,7 +171,7 @@ class _ImageScreenState extends State<ImageScreen> {
                 width: double.infinity,
                 height: double.infinity,
               )
-            : const Text("No image saved"),
+            : Text(LocaleKeys.setting_no_image_saved.tr()),
       ),
     );
   }

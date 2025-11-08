@@ -1,12 +1,7 @@
 import 'package:flutter/services.dart';
 
 abstract class PhoneValidator {
-  static const int validDigitsAfter966 = 10; // 0 + 9 digits
-
-  /// ✅ Normalize رقم الهاتف السعودي لأي صيغة إلى صيغة واحدة (96605XXXXXXXX)
-
-
-  /// ✅ فحص صلاحية الرقم السعودي بعد التنظيف
+  static const int validDigitsAfter966 = 10; 
   static isPhoneNumberValid(String phone) {
     if (phone.isEmpty) {
       return "Phone number is required";

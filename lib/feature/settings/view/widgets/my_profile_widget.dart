@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import 'package:tasty_bite/core/widgets/uploadied_image_widget.dart';
 import '../../../../core/helper/spacing.dart';
-import 'package:tasty_bite/feature/auth/signup/logic/user_data_cubit.dart';
-import 'package:tasty_bite/feature/auth/signup/logic/user_data_state.dart';
+import 'package:tasty_bite/feature/auth/signup/view/logic/user_data_cubit.dart';
+import 'package:tasty_bite/feature/auth/signup/view/logic/user_data_state.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../../../core/utils/new_app_colors.dart';
 

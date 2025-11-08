@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasty_bite/core/utils/app_text_style.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import 'package:tasty_bite/core/widgets/custom_progress_indecator.dart';
 import '../../../../core/helper/function/failure_snakbar.dart';
 import '../../../../core/helper/function/success_scaffold.dart';
@@ -26,7 +28,7 @@ class FormChangePasswordWidget extends StatelessWidget {
             AppTextFormField(
               prefixIcon: Icons.lock,
               controller: cubit.currentController,
-              hintText: "Current password",
+              hintText: LocaleKeys.change_password_screen_current_password.tr(),
               validator: (password) =>
                   AppValidation.passwordValidation(password),
               isObscureText: true,
@@ -36,7 +38,7 @@ class FormChangePasswordWidget extends StatelessWidget {
               prefixIcon: Icons.lock,
               controller: cubit.newController,
               isObscureText: true,
-              hintText: "new password",
+              hintText:LocaleKeys.change_password_screen_new_password.tr(),
               validator: (password) =>
                   AppValidation.passwordValidation(password),
             ),
@@ -45,7 +47,7 @@ class FormChangePasswordWidget extends StatelessWidget {
               prefixIcon: Icons.lock,
               controller: cubit.confirmController,
               isObscureText: true,
-              hintText: "confirm new password",
+              hintText:LocaleKeys.change_password_screen_confirm_new_password.tr(),
               validator: (confirmPassword) =>
                   AppValidation.confirmPasswordValidation(
                     cubit.newController.text,
@@ -57,7 +59,7 @@ class FormChangePasswordWidget extends StatelessWidget {
                 if (state is SuccessChangePassword) {
                   successShowSnackBar(
                     context: context,
-                    title: "Password changed successfully",
+                    title: LocaleKeys.change_password_screen_password_changed_successfully.tr(),
                   );
                 }
                 if (state is FailureChangePassword) {
@@ -75,7 +77,7 @@ class FormChangePasswordWidget extends StatelessWidget {
                   widget: state is LoadingChangePassword
                       ? CustomProgressIndecator()
                       : Text(
-                          "Change",
+                         LocaleKeys.change_password_screen_change.tr(),
                           style: AppTextStyle.appbarSize22WhiteColor.copyWith(
                             color: NewAppColors.white,
                           ),

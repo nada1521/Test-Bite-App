@@ -11,7 +11,7 @@ class DrowerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: NewAppColors.white,
-      padding: const EdgeInsets.only(top: 50, left: 20),
+      padding: const EdgeInsetsDirectional.only(top: 80, start: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

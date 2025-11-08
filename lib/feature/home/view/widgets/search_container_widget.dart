@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tasty_bite/core/router/app_router_path.dart';
+import 'package:tasty_bite/core/utils/generated/tr_locale_keys.g.dart';
 import 'package:tasty_bite/core/utils/new_app_colors.dart';
 import '../../../../core/helper/navigation/push_to.dart';
 import '../../../../core/helper/spacing.dart';
@@ -32,7 +34,7 @@ class SearchContainerWidget extends StatelessWidget {
             Icon(Icons.search, color: NewAppColors.disabled),
             horizontalSpace(4),
             Text(
-              "Discover global flavors",
+              LocaleKeys.home_screen_discover_global_flavors.tr(),
               style: AppTextStyle.fontWeightW400Size16HintTextColor,
             ),
             Spacer(flex: 1),
