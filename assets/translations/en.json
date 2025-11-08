@@ -111,7 +111,7 @@
     "placeholder": {
       "type_your_name": "Enter your name",
       "enter_your_email": "Enter your email",
-      "enter_phone_number_instruction": "Enter phone number",
+      "phone_number": "Phone Number",
       "type_new_password": "Type the new password",
       "referral_code_hint": "Example of a referral code: Aq12345"
     },

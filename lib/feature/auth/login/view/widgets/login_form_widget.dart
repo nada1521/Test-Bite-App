@@ -23,10 +23,13 @@ class LoginFormWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(5),
-            Text(LocaleKeys.auth_label_login.tr(), style: AppTextStyle.fontSize32BoldTextPrimaryColor),
+            Text(
+              LocaleKeys.auth_label_login.tr(),
+              style: AppTextStyle.fontSize32BoldTextPrimaryColor,
+            ),
             verticalSpace(6),
             Text(
-              LocaleKeys.auth_label_welcome_back.tr(),
+              LocaleKeys.auth_title_welcome_back.tr(),
               style: AppTextStyle.fontWeightW500Size18TextSecondColor,
             ),
             ListViewFormWidget(textFieldModels: loginFormList(loginCubit)),
